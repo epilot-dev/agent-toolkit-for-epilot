@@ -80,12 +80,30 @@ for (const relative of ["plugins/epilot-core/mcp.json", "plugins/epilot-core/.mc
   if (!config.mcpServers?.["volt-ui"]) failures.push(`${relative}: Volt UI MCP missing`);
 }
 
-const sourceText = fs.readFileSync(path.join(plugin, "README.md"), "utf8") +
+const sourceText = fs.readFileSync(path.join(root, "README.md"), "utf8") +
+  fs.readFileSync(path.join(plugin, "README.md"), "utf8") +
   fs.readdirSync(path.join(plugin, "skills"), { recursive: true })
     .filter((entry) => typeof entry === "string" && entry.endsWith(".md"))
     .map((entry) => fs.readFileSync(path.join(plugin, "skills", entry), "utf8"))
     .join("\n");
-for (const forbidden of ["epilot-lima", "NKZ-V2", "search-lima-docs", "/Users/", "BEGIN PRIVATE KEY"]) {
+// Markers of internal-only knowledge (repos, tools, infra, tenants) that must
+// never ship in public toolkit guidance. Keep this list growing.
+for (const forbidden of [
+  "epilot-lima",
+  "NKZ-V2",
+  "search-lima-docs",
+  "/Users/",
+  "BEGIN PRIVATE KEY",
+  "gitlab",
+  "GitLab",
+  "atlassian",
+  "epilot360-",
+  "svc-",
+  "dev.sls.epilot",
+  "launchdarkly",
+  "LaunchDarkly",
+  "20000776",
+]) {
   if (sourceText.includes(forbidden)) failures.push(`Non-public artifact remains: ${forbidden}`);
 }
 

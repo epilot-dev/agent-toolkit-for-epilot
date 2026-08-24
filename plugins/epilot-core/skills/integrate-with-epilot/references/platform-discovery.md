@@ -11,11 +11,11 @@ The bundled epilot MCP is the preferred discovery surface.
 
 ## APIs
 
-1. Use `list_available_apis` when the owning service is unknown.
-2. Use `search_api_operations` with an outcome or domain term.
-3. Use `describe_api_operation` for the exact request, response, auth, and
+1. Use `search_api_operations` with an outcome or domain term; omit the query
+   to list every published operation when the owning service is unknown.
+2. Use `describe_api_operation` for the exact request, response, auth, and
    identifiers before writing a client.
-4. Use `call_api_operation` only when a live call is needed and authorized.
+3. Use `call_api_operation` only when a live call is needed and authorized.
    Non-GET operations are writes even when named “test”, “preview”, or “sync”.
 
 ## Data model and organization state
@@ -26,8 +26,10 @@ The bundled epilot MCP is the preferred discovery surface.
   workflows, or related configuration.
 - Use `get_config_dependencies` and `get_config_impact` before proposing a
   change to an existing resource.
-- Use curated tools such as `list_webhooks`, `list_workflows`, or
-  `list_automations` when their credential-safe projection covers the need.
+- Use curated tools such as `list_webhooks`, `list_journeys`, or
+  `list_portals` when their credential-safe projection covers the need;
+  their raw API equivalents are blocked because the responses embed
+  credentials.
 
 Call `whoami` before reporting organization-specific findings. Label
 documented, observed, and inferred facts separately.

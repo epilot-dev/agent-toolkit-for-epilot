@@ -15,6 +15,9 @@ documentation and live tools for changing details.
   core mental model and major capability families.
 - Read [references/solution-boundaries.md](references/solution-boundaries.md)
   when deciding between configuration, an App, and an integration.
+- Use `configure-epilot` when the boundary is native configuration: schemas,
+  journeys, products and pricing, workflows, automations, portals, or
+  permissions.
 - Use `build-epilot-app` after the boundary is clearly an App.
 - Use `integrate-with-epilot` when an external service, script, backend, or
   data pipeline must exchange data or commands with epilot.

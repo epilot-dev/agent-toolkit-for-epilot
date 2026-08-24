@@ -15,7 +15,7 @@ body:
     attributes:
       label: Plugin and version
       description: Plugin name plus release, commit, or marketplace version.
-      placeholder: epilot-developer 0.1.0
+      placeholder: epilot-core 0.1.0
     validations:
       required: true
   - type: input

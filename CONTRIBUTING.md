@@ -35,7 +35,7 @@ npm run inspect:app -- /path/to/an/epilot-app
 - Keep customer, organization, credential, and environment data out of the
   repository, tests, screenshots, and examples.
 - Keep Lima, SAP, and other vendor-specific ERP behavior out of the core
-  `epilot-developer` plugin. Those integrations belong in optional plugins.
+  `epilot-core` plugin. Those integrations belong in optional plugins.
 - Add or update tests when behavior changes.
 - Keep Codex, portable Agent Plugins, and Claude metadata consistent.
 

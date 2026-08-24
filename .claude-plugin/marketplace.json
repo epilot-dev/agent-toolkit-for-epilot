@@ -6,9 +6,9 @@
   "description": "Agent plugins for building Apps and integrations on the epilot platform.",
   "plugins": [
     {
-      "name": "epilot-developer",
-      "source": "./plugins/epilot-developer",
-      "description": "Build polished epilot Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+      "name": "epilot-core",
+      "source": "./plugins/epilot-core",
+      "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
       "author": {
         "name": "epilot"
       },
@@ -20,6 +20,7 @@
         "epilot",
         "apps",
         "integrations",
+        "configuration",
         "developer-tools"
       ],
       "strict": true

@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "epilot-developer",
+      "name": "epilot-core",
       "source": {
         "source": "local",
-        "path": "./plugins/epilot-developer"
+        "path": "./plugins/epilot-core"
       },
       "policy": {
         "installation": "AVAILABLE",

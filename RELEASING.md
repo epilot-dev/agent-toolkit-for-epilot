@@ -7,9 +7,9 @@ Toolkit releases use Semantic Versioning and Git tags in the form `vX.Y.Z`.
 1. Confirm `main` is green and the working tree contains only intended changes.
 2. Choose the release version and update it in:
    - `package.json`;
-   - `plugins/epilot-developer/plugin.json`;
-   - `plugins/epilot-developer/.codex-plugin/plugin.json`; and
-   - `plugins/epilot-developer/.claude-plugin/plugin.json`.
+   - `plugins/epilot-core/plugin.json`;
+   - `plugins/epilot-core/.codex-plugin/plugin.json`; and
+   - `plugins/epilot-core/.claude-plugin/plugin.json`.
 3. Move entries from `Unreleased` into a dated section in `CHANGELOG.md` and
    update its comparison links.
 4. Run `npm run check` and inspect the complete diff for secrets, internal

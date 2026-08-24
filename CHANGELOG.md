@@ -6,11 +6,23 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `configure-epilot` skill for end-to-end platform configuration: schemas,
+  journeys, products and pricing, workflows, automations, portals, and
+  permissions.
+
+### Changed
+
+- Renamed the plugin from `epilot-developer` to `epilot-core` to cover
+  configuration alongside App and integration development. The rename happened
+  before any public release, so no installed plugin is affected.
+
 ## [0.1.0] - 2026-08-24
 
 ### Added
 
-- Initial `epilot-developer` plugin for Codex and Agent Plugins 1.0 clients.
+- Initial `epilot-core` plugin for Codex and Agent Plugins 1.0 clients.
 - Platform routing, App building, generic integration, and interface design
   skills.
 - epilot and Volt UI MCP server configuration.

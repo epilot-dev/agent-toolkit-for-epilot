@@ -23,7 +23,7 @@ body:
     attributes:
       label: Suggested boundary
       options:
-        - Core epilot-developer plugin
+        - Core epilot-core plugin
         - Optional integration-specific plugin
         - Documentation only
         - Unsure

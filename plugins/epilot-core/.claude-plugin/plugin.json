@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "epilot-developer",
-  "displayName": "epilot Developer Toolkit",
+  "name": "epilot-core",
+  "displayName": "epilot Core",
   "version": "0.1.0",
-  "description": "Build polished epilot Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+  "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
   "author": {
     "name": "epilot"
   },
@@ -14,6 +14,7 @@
     "epilot",
     "apps",
     "integrations",
+    "configuration",
     "developer",
     "volt-ui"
   ],

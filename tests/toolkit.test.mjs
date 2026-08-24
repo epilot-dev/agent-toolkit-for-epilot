@@ -4,7 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { inspectEpilotApp } from "../plugins/epilot-developer/skills/build-epilot-app/scripts/inspect-epilot-app.mjs";
+import { inspectEpilotApp } from "../plugins/epilot-core/skills/build-epilot-app/scripts/inspect-epilot-app.mjs";
 
 const makeRoot = () => fs.mkdtempSync(path.join(os.tmpdir(), "epilot-app-inspector-"));
 

@@ -13,6 +13,9 @@ on epilot.
 - `integrate-with-epilot` connects external services directly through epilot
   APIs, webhooks, events, mappings, and synchronization patterns without
   requiring an App or assuming a particular ERP.
+- `configure-epilot` sets up the platform end to end: entity schemas,
+  journeys, products and pricing, workflows, automations, portals, and
+  permissions, using the connected organization's actual state.
 - `epilot-interface-designer` uses Volt UI components and tokens to make App
   interfaces feel native, accessible, and task-oriented.
 

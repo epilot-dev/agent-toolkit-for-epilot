@@ -18,6 +18,6 @@
   },
   "scripts": {
     "check": "node scripts/validate.mjs && node --test tests/*.test.mjs",
-    "inspect:app": "node plugins/epilot-developer/skills/build-epilot-app/scripts/inspect-epilot-app.mjs"
+    "inspect:app": "node plugins/epilot-core/skills/build-epilot-app/scripts/inspect-epilot-app.mjs"
   }
 }

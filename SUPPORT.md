@@ -3,7 +3,7 @@
 ## Questions and usage help
 
 Start with the [Agent Toolkit documentation](https://docs.epilot.io/agent-toolkit)
-and the plugin-specific README in `plugins/epilot-developer/`.
+and the plugin-specific README in `plugins/epilot-core/`.
 
 For reproducible toolkit bugs or focused feature requests, open a GitHub issue
 using the provided templates. Include the agent and version, operating system,

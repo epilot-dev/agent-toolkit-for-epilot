@@ -4,17 +4,17 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Agent Plugins 1.0](https://img.shields.io/badge/Agent%20Plugins-1.0-4C4CFF.svg)](https://agent-plugins.org/)
 
-Give AI coding agents the platform knowledge and live tools they need to build
-Apps and integrations on epilot.
+Give AI agents the platform knowledge and live tools they need to build Apps
+and integrations on epilot and to configure the platform end to end.
 
-The first installable plugin, `epilot-developer`, combines portable development
+The first installable plugin, `epilot-core`, combines portable platform
 knowledge with live tools:
 
 - epilot MCP for current documentation, OpenAPI discovery, entity schemas, and
   connected-organization configuration;
 - Volt UI MCP for current components, props, and design tokens;
-- a thin platform guide plus focused skills for Apps, integrations, and native
-  epilot interface design;
+- a thin platform guide plus focused skills for Apps, integrations,
+  end-to-end platform configuration, and native epilot interface design;
 - a deterministic local inspector for epilot App manifests and build inputs.
 
 The toolkit intentionally excludes Lima, SAP, and other ERP-specific behavior.
@@ -30,7 +30,7 @@ Add this repository as a marketplace:
 codex plugin marketplace add epilot-dev/agent-toolkit-for-epilot
 ```
 
-Then open `/plugins` in Codex and install `epilot-developer`.
+Then open `/plugins` in Codex and install `epilot-core`.
 
 ### Claude Code
 
@@ -38,7 +38,7 @@ Run these commands inside Claude Code:
 
 ```text
 /plugin marketplace add epilot-dev/agent-toolkit-for-epilot
-/plugin install epilot-developer@agent-toolkit-for-epilot
+/plugin install epilot-core@agent-toolkit-for-epilot
 /reload-plugins
 ```
 
@@ -62,6 +62,8 @@ select an organization. Access remains subject to your epilot permissions.
   portals, Apps, and integrations.
 - Decide whether a requirement belongs in native configuration, an App, or an
   external integration.
+- Configure schemas, journeys, products and pricing, workflows, automations,
+  portals, and permissions end to end.
 - Scaffold and validate Apps with the current epilot CLI and manifest schema.
 - Discover current documentation and exact OpenAPI operations through MCP.
 - Inspect the connected organization's actual schemas and configuration when
@@ -89,7 +91,7 @@ only when needed:
 ├── .claude-plugin/marketplace.json   # Claude Code marketplace
 ├── .github/                          # CI and contribution templates
 └── plugins/
-    └── epilot-developer/
+    └── epilot-core/
         ├── plugin.json                 # portable Agent Plugins 1.0 manifest
         ├── mcp.json                    # portable MCP configuration
         ├── .codex-plugin/plugin.json   # Codex manifest
@@ -99,6 +101,7 @@ only when needed:
             ├── epilot-platform-guide/
             ├── build-epilot-app/
             ├── integrate-with-epilot/
+            ├── configure-epilot/
             └── epilot-interface-designer/
 ```
 

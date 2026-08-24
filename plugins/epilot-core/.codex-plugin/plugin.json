@@ -1,7 +1,7 @@
 {
-  "name": "epilot-developer",
+  "name": "epilot-core",
   "version": "0.1.0",
-  "description": "Understand the epilot platform and build polished Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+  "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
   "author": {
     "name": "epilot",
     "url": "https://www.epilot.cloud/"
@@ -13,14 +13,15 @@
     "epilot",
     "apps",
     "integrations",
+    "configuration",
     "developer",
     "volt-ui"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "epilot Developer Toolkit",
-    "shortDescription": "Build native-feeling epilot Apps and integrations",
-    "longDescription": "Explains epilot's platform model, guides app and integration architecture, discovers current APIs and documentation, inspects connected organization configuration, and uses Volt UI components and tokens for polished interfaces.",
+    "displayName": "epilot Core",
+    "shortDescription": "Build epilot Apps and integrations and configure the platform",
+    "longDescription": "Explains epilot's platform model, guides App and integration architecture, configures schemas, journeys, products, workflows, and automations end to end, discovers current APIs and documentation, inspects connected organization configuration, and uses Volt UI components and tokens for polished interfaces.",
     "developerName": "epilot",
     "category": "Developer Tools",
     "capabilities": [
@@ -30,7 +31,7 @@
     ],
     "defaultPrompt": [
       "Build an epilot App from this idea.",
-      "Should this epilot capability be configuration, an App, or an integration?",
+      "Configure this business process end to end in epilot.",
       "Connect this external service directly to epilot."
     ],
     "websiteURL": "https://docs.epilot.io/agent-toolkit"

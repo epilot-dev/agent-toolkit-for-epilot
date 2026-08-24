@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "epilot-developer",
+  "name": "epilot-core",
   "version": "0.1.0",
-  "description": "Understand the epilot platform and build polished Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+  "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
   "author": {
     "name": "epilot"
   },
@@ -13,6 +13,7 @@
     "epilot",
     "apps",
     "integrations",
+    "configuration",
     "developer",
     "volt-ui"
   ]

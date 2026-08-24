@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const plugin = path.join(root, "plugins", "epilot-developer");
+const plugin = path.join(root, "plugins", "epilot-core");
 const failures = [];
 const readJson = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 const requireFile = (relative) => {
@@ -20,38 +20,39 @@ for (const relative of [
   ".github/workflows/validate.yml",
   ".agents/plugins/marketplace.json",
   ".claude-plugin/marketplace.json",
-  "plugins/epilot-developer/plugin.json",
-  "plugins/epilot-developer/mcp.json",
-  "plugins/epilot-developer/.codex-plugin/plugin.json",
-  "plugins/epilot-developer/.claude-plugin/plugin.json",
-  "plugins/epilot-developer/.mcp.json",
-  "plugins/epilot-developer/skills/epilot-platform-guide/SKILL.md",
-  "plugins/epilot-developer/skills/build-epilot-app/SKILL.md",
-  "plugins/epilot-developer/skills/integrate-with-epilot/SKILL.md",
-  "plugins/epilot-developer/skills/epilot-interface-designer/SKILL.md",
+  "plugins/epilot-core/plugin.json",
+  "plugins/epilot-core/mcp.json",
+  "plugins/epilot-core/.codex-plugin/plugin.json",
+  "plugins/epilot-core/.claude-plugin/plugin.json",
+  "plugins/epilot-core/.mcp.json",
+  "plugins/epilot-core/skills/epilot-platform-guide/SKILL.md",
+  "plugins/epilot-core/skills/build-epilot-app/SKILL.md",
+  "plugins/epilot-core/skills/integrate-with-epilot/SKILL.md",
+  "plugins/epilot-core/skills/configure-epilot/SKILL.md",
+  "plugins/epilot-core/skills/epilot-interface-designer/SKILL.md",
 ]) requireFile(relative);
 
 const marketplace = readJson(".agents/plugins/marketplace.json");
 if (marketplace.name !== "agent-toolkit-for-epilot") failures.push("Unexpected marketplace name");
-if (marketplace.plugins?.length !== 1 || marketplace.plugins[0]?.name !== "epilot-developer") {
-  failures.push("Marketplace must expose only epilot-developer");
+if (marketplace.plugins?.length !== 1 || marketplace.plugins[0]?.name !== "epilot-core") {
+  failures.push("Marketplace must expose only epilot-core");
 }
 
 const claudeMarketplace = readJson(".claude-plugin/marketplace.json");
 if (claudeMarketplace.name !== "agent-toolkit-for-epilot") failures.push("Unexpected Claude marketplace name");
 if (claudeMarketplace.owner?.name !== "epilot") failures.push("Claude marketplace owner is missing");
-if (claudeMarketplace.plugins?.length !== 1 || claudeMarketplace.plugins[0]?.name !== "epilot-developer") {
-  failures.push("Claude marketplace must expose only epilot-developer");
+if (claudeMarketplace.plugins?.length !== 1 || claudeMarketplace.plugins[0]?.name !== "epilot-core") {
+  failures.push("Claude marketplace must expose only epilot-core");
 }
-if (claudeMarketplace.plugins?.[0]?.source !== "./plugins/epilot-developer") {
+if (claudeMarketplace.plugins?.[0]?.source !== "./plugins/epilot-core") {
   failures.push("Claude marketplace source is incorrect");
 }
 
-const portable = readJson("plugins/epilot-developer/plugin.json");
-const codex = readJson("plugins/epilot-developer/.codex-plugin/plugin.json");
-const claude = readJson("plugins/epilot-developer/.claude-plugin/plugin.json");
-if (portable.name !== "epilot-developer" || codex.name !== "epilot-developer") failures.push("Plugin names do not match");
-if (claude.name !== "epilot-developer") failures.push("Claude plugin name does not match");
+const portable = readJson("plugins/epilot-core/plugin.json");
+const codex = readJson("plugins/epilot-core/.codex-plugin/plugin.json");
+const claude = readJson("plugins/epilot-core/.claude-plugin/plugin.json");
+if (portable.name !== "epilot-core" || codex.name !== "epilot-core") failures.push("Plugin names do not match");
+if (claude.name !== "epilot-core") failures.push("Claude plugin name does not match");
 if (portable.version !== codex.version) failures.push("Portable and Codex versions differ");
 if (portable.version !== claude.version) failures.push("Portable and Claude versions differ");
 if (codex.interface?.defaultPrompt?.length > 3) failures.push("Codex default prompts must not exceed three entries");
@@ -73,7 +74,7 @@ if (!licenseText.includes("Apache License") || !licenseText.includes("Version 2.
   failures.push("LICENSE is not Apache-2.0 text");
 }
 
-for (const relative of ["plugins/epilot-developer/mcp.json", "plugins/epilot-developer/.mcp.json"]) {
+for (const relative of ["plugins/epilot-core/mcp.json", "plugins/epilot-core/.mcp.json"]) {
   const config = readJson(relative);
   if (config.mcpServers?.epilot?.url !== "https://mcp.epilot.io/mcp") failures.push(`${relative}: epilot MCP missing`);
   if (!config.mcpServers?.["volt-ui"]) failures.push(`${relative}: Volt UI MCP missing`);

@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest a focused improvement to the toolkit
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What developer outcome is difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful improvement.
+    validations:
+      required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Suggested boundary
+      options:
+        - Core epilot-developer plugin
+        - Optional integration-specific plugin
+        - Documentation only
+        - Unsure
+    validations:
+      required: true

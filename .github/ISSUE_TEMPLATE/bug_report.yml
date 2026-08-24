@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a reproducible problem with the toolkit
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not include credentials, customer data, organization configuration,
+        or security vulnerabilities. Report vulnerabilities privately using
+        the repository security advisory form.
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin and version
+      description: Plugin name plus release, commit, or marketplace version.
+      placeholder: epilot-developer 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Agent client
+      description: Client name and version.
+      placeholder: Codex, ChatGPT, or Claude Code
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the expected and observed behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide minimal, sanitized steps and relevant logs.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Node.js version, and any other relevant details.

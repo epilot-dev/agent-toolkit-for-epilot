@@ -1,0 +1,39 @@
+{
+  "name": "epilot-developer",
+  "version": "0.1.0",
+  "description": "Understand the epilot platform and build polished Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+  "author": {
+    "name": "epilot",
+    "url": "https://www.epilot.cloud/"
+  },
+  "homepage": "https://docs.epilot.io/agent-toolkit",
+  "repository": "https://github.com/epilot-dev/epilot-agent-toolkit",
+  "license": "Apache-2.0",
+  "keywords": [
+    "epilot",
+    "apps",
+    "integrations",
+    "developer",
+    "volt-ui"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "epilot Developer Toolkit",
+    "shortDescription": "Build native-feeling epilot Apps and integrations",
+    "longDescription": "Explains epilot's platform model, guides app and integration architecture, discovers current APIs and documentation, inspects connected organization configuration, and uses Volt UI components and tokens for polished interfaces.",
+    "developerName": "epilot",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "Build an epilot App from this idea.",
+      "Should this epilot capability be configuration, an App, or an integration?",
+      "Connect this external service directly to epilot."
+    ],
+    "websiteURL": "https://docs.epilot.io/agent-toolkit"
+  },
+  "mcpServers": "./.mcp.json"
+}

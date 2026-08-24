@@ -1,0 +1,28 @@
+{
+  "name": "epilot-agent-toolkit",
+  "owner": {
+    "name": "epilot"
+  },
+  "description": "Agent plugins for building Apps and integrations on the epilot platform.",
+  "plugins": [
+    {
+      "name": "epilot-developer",
+      "source": "./plugins/epilot-developer",
+      "description": "Build polished epilot Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+      "author": {
+        "name": "epilot"
+      },
+      "homepage": "https://docs.epilot.io/agent-toolkit",
+      "repository": "https://github.com/epilot-dev/epilot-agent-toolkit",
+      "license": "Apache-2.0",
+      "category": "development",
+      "tags": [
+        "epilot",
+        "apps",
+        "integrations",
+        "developer-tools"
+      ],
+      "strict": true
+    }
+  ]
+}

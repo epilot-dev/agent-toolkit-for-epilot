@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "epilot-developer",
+  "version": "0.1.0",
+  "description": "Understand the epilot platform and build polished Apps and reliable integrations using current APIs, organization context, and Volt UI guidance.",
+  "author": {
+    "name": "epilot"
+  },
+  "homepage": "https://docs.epilot.io/agent-toolkit",
+  "repository": "https://github.com/epilot-dev/epilot-agent-toolkit",
+  "license": "Apache-2.0",
+  "keywords": [
+    "epilot",
+    "apps",
+    "integrations",
+    "developer",
+    "volt-ui"
+  ]
+}

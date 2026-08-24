@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "epilot": {
+      "type": "http",
+      "url": "https://mcp.epilot.io/mcp"
+    },
+    "volt-ui": {
+      "command": "npx",
+      "args": ["-y", "@epilot/volt-ui-mcp"]
+    }
+  }
+}

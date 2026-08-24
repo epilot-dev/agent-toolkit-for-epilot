@@ -1,4 +1,4 @@
-# epilot Agent Toolkit
+# Agent Toolkit for epilot
 
 [![Validate](https://github.com/epilot-dev/agent-toolkit-for-epilot/actions/workflows/validate.yml/badge.svg)](https://github.com/epilot-dev/agent-toolkit-for-epilot/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)

@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for helping improve the epilot Agent Toolkit. Bug reports, focused
+Thank you for helping improve the Agent Toolkit for epilot. Bug reports, focused
 feature requests, documentation improvements, and pull requests are welcome.
 
 ## Before you start

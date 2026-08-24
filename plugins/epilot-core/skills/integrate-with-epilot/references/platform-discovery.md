@@ -31,3 +31,8 @@ The bundled epilot MCP is the preferred discovery surface.
 
 Call `whoami` before reporting organization-specific findings. Label
 documented, observed, and inferred facts separately.
+
+Entity reads over OAuth MCP connections are PII-anonymized by default;
+`whoami` reports the mode as `entity_pii`. Masked values are the expected
+behavior, not data corruption — use them as sanitized fixture shapes, and do
+not attempt to reconstruct or work around the masking.

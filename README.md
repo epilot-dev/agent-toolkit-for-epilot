@@ -42,11 +42,16 @@ Run these commands inside Claude Code:
 /reload-plugins
 ```
 
-### ChatGPT
+### ChatGPT and other MCP clients
 
-ChatGPT installation will be available after the toolkit is approved for the
-shared OpenAI Plugins directory. Until then, use the public marketplace with
-Codex or Claude Code.
+ChatGPT does not install marketplace plugins, but it can use the epilot MCP
+directly. Add `https://mcp.epilot.io/mcp` as a custom connector
+(Settings → Connectors) and authenticate with your epilot account when
+prompted. The same URL works in any MCP-capable client.
+
+Direct MCP access provides current documentation, API discovery, and
+organization inspection. The skills-based development workflows are available
+in Codex and Claude Code.
 
 When the epilot MCP is first used, your agent may ask you to authenticate and
 select an organization. Access remains subject to your epilot permissions.

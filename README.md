@@ -1,6 +1,6 @@
 # epilot Agent Toolkit
 
-[![Validate](https://github.com/epilot-dev/epilot-agent-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/epilot-dev/epilot-agent-toolkit/actions/workflows/validate.yml)
+[![Validate](https://github.com/epilot-dev/agent-toolkit-for-epilot/actions/workflows/validate.yml/badge.svg)](https://github.com/epilot-dev/agent-toolkit-for-epilot/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Agent Plugins 1.0](https://img.shields.io/badge/Agent%20Plugins-1.0-4C4CFF.svg)](https://agent-plugins.org/)
 
@@ -27,7 +27,7 @@ Vendor implementations belong in separately installable plugins.
 Add this repository as a marketplace:
 
 ```bash
-codex plugin marketplace add epilot-dev/epilot-agent-toolkit
+codex plugin marketplace add epilot-dev/agent-toolkit-for-epilot
 ```
 
 Then open `/plugins` in Codex and install `epilot-developer`.
@@ -37,8 +37,8 @@ Then open `/plugins` in Codex and install `epilot-developer`.
 Run these commands inside Claude Code:
 
 ```text
-/plugin marketplace add epilot-dev/epilot-agent-toolkit
-/plugin install epilot-developer@epilot-agent-toolkit
+/plugin marketplace add epilot-dev/agent-toolkit-for-epilot
+/plugin install epilot-developer@agent-toolkit-for-epilot
 /reload-plugins
 ```
 

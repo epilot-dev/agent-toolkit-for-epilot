@@ -56,4 +56,4 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1.
 
 [homepage]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[report]: https://github.com/epilot-dev/epilot-agent-toolkit/security/advisories/new
+[report]: https://github.com/epilot-dev/agent-toolkit-for-epilot/security/advisories/new

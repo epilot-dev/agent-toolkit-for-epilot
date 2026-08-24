@@ -17,5 +17,5 @@ project follows [Semantic Versioning](https://semver.org/).
 - Claude Code marketplace compatibility.
 - Local App manifest inspector and repository validation tests.
 
-[Unreleased]: https://github.com/epilot-dev/epilot-agent-toolkit/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/epilot-dev/epilot-agent-toolkit/releases/tag/v0.1.0
+[Unreleased]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/epilot-dev/agent-toolkit-for-epilot/releases/tag/v0.1.0

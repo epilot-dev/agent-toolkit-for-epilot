@@ -26,4 +26,4 @@ the issue when a fix or mitigation is available. Vulnerabilities in epilot's
 hosted platform or APIs that are unrelated to this repository should be
 reported through epilot's established security channels instead.
 
-[report]: https://github.com/epilot-dev/epilot-agent-toolkit/security/advisories/new
+[report]: https://github.com/epilot-dev/agent-toolkit-for-epilot/security/advisories/new

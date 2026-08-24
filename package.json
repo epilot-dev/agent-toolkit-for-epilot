@@ -1,5 +1,5 @@
 {
-  "name": "epilot-agent-toolkit",
+  "name": "agent-toolkit-for-epilot",
   "version": "0.1.0",
   "description": "Agent plugins for building Apps and integrations on the epilot platform.",
   "private": true,
@@ -7,10 +7,10 @@
   "homepage": "https://docs.epilot.io/agent-toolkit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/epilot-dev/epilot-agent-toolkit.git"
+    "url": "git+https://github.com/epilot-dev/agent-toolkit-for-epilot.git"
   },
   "bugs": {
-    "url": "https://github.com/epilot-dev/epilot-agent-toolkit/issues"
+    "url": "https://github.com/epilot-dev/agent-toolkit-for-epilot/issues"
   },
   "type": "module",
   "engines": {

@@ -32,13 +32,13 @@ for (const relative of [
 ]) requireFile(relative);
 
 const marketplace = readJson(".agents/plugins/marketplace.json");
-if (marketplace.name !== "epilot-agent-toolkit") failures.push("Unexpected marketplace name");
+if (marketplace.name !== "agent-toolkit-for-epilot") failures.push("Unexpected marketplace name");
 if (marketplace.plugins?.length !== 1 || marketplace.plugins[0]?.name !== "epilot-developer") {
   failures.push("Marketplace must expose only epilot-developer");
 }
 
 const claudeMarketplace = readJson(".claude-plugin/marketplace.json");
-if (claudeMarketplace.name !== "epilot-agent-toolkit") failures.push("Unexpected Claude marketplace name");
+if (claudeMarketplace.name !== "agent-toolkit-for-epilot") failures.push("Unexpected Claude marketplace name");
 if (claudeMarketplace.owner?.name !== "epilot") failures.push("Claude marketplace owner is missing");
 if (claudeMarketplace.plugins?.length !== 1 || claudeMarketplace.plugins[0]?.name !== "epilot-developer") {
   failures.push("Claude marketplace must expose only epilot-developer");
@@ -57,7 +57,7 @@ if (portable.version !== claude.version) failures.push("Portable and Claude vers
 if (codex.interface?.defaultPrompt?.length > 3) failures.push("Codex default prompts must not exceed three entries");
 
 for (const [label, manifest] of [["portable", portable], ["Codex", codex], ["Claude", claude]]) {
-  if (manifest.repository !== "https://github.com/epilot-dev/epilot-agent-toolkit") {
+  if (manifest.repository !== "https://github.com/epilot-dev/agent-toolkit-for-epilot") {
     failures.push(`${label} manifest repository is incorrect`);
   }
   if (manifest.license !== "Apache-2.0") failures.push(`${label} manifest license is incorrect`);

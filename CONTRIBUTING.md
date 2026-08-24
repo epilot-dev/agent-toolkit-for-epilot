@@ -16,8 +16,8 @@ The repository requires Node.js 22 or newer and has no installed runtime
 dependencies.
 
 ```bash
-git clone https://github.com/epilot-dev/epilot-agent-toolkit.git
-cd epilot-agent-toolkit
+git clone https://github.com/epilot-dev/agent-toolkit-for-epilot.git
+cd agent-toolkit-for-epilot
 npm run check
 ```
 

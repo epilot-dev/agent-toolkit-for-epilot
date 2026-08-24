@@ -7,7 +7,7 @@
     "url": "https://www.epilot.cloud/"
   },
   "homepage": "https://docs.epilot.io/agent-toolkit",
-  "repository": "https://github.com/epilot-dev/epilot-agent-toolkit",
+  "repository": "https://github.com/epilot-dev/agent-toolkit-for-epilot",
   "license": "Apache-2.0",
   "keywords": [
     "epilot",

@@ -1,5 +1,5 @@
 {
-  "name": "epilot-agent-toolkit",
+  "name": "agent-toolkit-for-epilot",
   "interface": {
     "displayName": "epilot Agent Toolkit"
   },

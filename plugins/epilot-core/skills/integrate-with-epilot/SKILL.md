@@ -18,6 +18,9 @@ installation lifecycle, or epilot UI component.
 - Read [references/platform-discovery.md](references/platform-discovery.md)
   when finding current docs, schemas, events, APIs, or connected-organization
   configuration through MCP.
+- Read [references/integration-mappings.md](references/integration-mappings.md)
+  when authoring or changing Integration Toolkit inbound mappings — the
+  simulate-first workflow, mapping syntax map, and relation handling.
 - Read [references/reliability.md](references/reliability.md) when implementing
   delivery, synchronization, mapping, security, monitoring, or recovery.
 

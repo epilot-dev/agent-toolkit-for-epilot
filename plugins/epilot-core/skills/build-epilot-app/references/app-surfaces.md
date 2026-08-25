@@ -1,5 +1,24 @@
 # Choosing an App surface
 
+## What an App is
+
+An epilot App is an installable package described by a `manifest.json`. It can
+contain **components** — custom UI rendered inside epilot surfaces (entity
+pages, navigation, journeys, portals, flows) that talk to their host through
+the App Bridge — and **functions** — epilot-hosted server-side logic. The
+manifest also declares the permissions the App's server side needs, an
+`API_PROXY` for calling credentialed external APIs without exposing secrets to
+the browser, and installation options an admin fills in per organization.
+
+The lifecycle: scaffold with the epilot CLI → develop and preview locally →
+deploy to your organization (private) → install per organization → optionally
+submit to the epilot Marketplace so other organizations can install it. Build
+an App when the outcome needs custom UI inside epilot or hosted custom logic;
+prefer native configuration when existing features express the outcome, and a
+plain external integration when no epilot surface is involved.
+
+## Choosing the surface
+
 Start from where the capability belongs in the user journey, not from a
 component type name. Confirm current availability with epilot docs or CLI help.
 

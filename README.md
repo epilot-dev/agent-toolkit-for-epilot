@@ -56,6 +56,11 @@ in Codex and Claude Code.
 When the epilot MCP is first used, your agent may ask you to authenticate and
 select an organization. Access remains subject to your epilot permissions.
 
+The default MCP URL is **read-only**: inspection, discovery, and simulation
+work; nothing can be created, changed, or deleted through it. To allow writes,
+connect the server as `https://mcp.epilot.io/mcp?access=write` and approve the
+write consent during authentication.
+
 ## What it helps with
 
 - Understand epilot entities, relations, journeys, workflows, automation,

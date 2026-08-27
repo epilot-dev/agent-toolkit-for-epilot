@@ -20,6 +20,9 @@ delivers the outcome and verify each layer before adding the next.
 - Read [references/process-patterns.md](references/process-patterns.md) when
   wiring a multi-step business process across journeys, mappings, automations,
   workflows, and portals.
+- Use `build-epilot-journey` when the work centers on creating or changing
+  a journey — it carries the step/block model, the design conventions, and
+  the curated journey tools.
 - Use `build-epilot-app` if the outcome needs custom code or UI beyond
   supported configuration. Use `integrate-with-epilot` if an external system
   must exchange data with epilot.

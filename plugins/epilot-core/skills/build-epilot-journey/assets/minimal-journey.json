@@ -1,0 +1,89 @@
+{
+  "$comment": "Canonical two-step scaffold, as the Journey Builder creates it. Replace every REPLACE-WITH-UUID with a freshly generated UUID (steps and blocks each get their own), keep the ActionBar targetStepId pointing at the confirmation step's stepId, and adapt names and copy. Pass to create_journey as { name, steps }.",
+  "name": "REPLACE Journey Name",
+  "steps": [
+    {
+      "stepId": "REPLACE-WITH-UUID-STEP-1",
+      "name": "Kontaktdaten",
+      "hideNextButton": true,
+      "schema": {
+        "type": "object",
+        "properties": { "Kontakt": { "type": "object" }, "Aktionsleiste": { "type": "object" } },
+        "required": []
+      },
+      "uischema": {
+        "type": "MainLinearLayout",
+        "options": { "scale": 5 },
+        "elements": [
+          {
+            "type": "ContactControl",
+            "scope": "#/properties/Kontakt",
+            "id": "REPLACE-WITH-UUID-BLOCK-1",
+            "options": {
+              "mode": "private",
+              "requireAge18": false,
+              "purposeLabels": ["customer"],
+              "fields": {
+                "salutation": { "options": ["Mr.", "Ms. / Mrs.", "Other"] },
+                "firstName": {},
+                "lastName": {},
+                "email": {},
+                "telephone": {}
+              }
+            }
+          },
+          {
+            "type": "ActionBarControl",
+            "scope": "#/properties/Aktionsleiste",
+            "id": "REPLACE-WITH-UUID-BLOCK-2",
+            "options": {
+              "ctaButton": {
+                "label": "Absenden",
+                "isVisible": true,
+                "actionType": "SubmitAndGoNext",
+                "targetStepId": "REPLACE-WITH-UUID-STEP-2"
+              },
+              "goBackButton": { "label": "Zurück", "isVisible": false, "actionType": "GoBack" },
+              "showPaper": false,
+              "stickyOnMobile": true,
+              "stickyOnMobileIndex": 1,
+              "halfWidth": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "stepId": "REPLACE-WITH-UUID-STEP-2",
+      "name": "Bestätigung",
+      "hideNextButton": true,
+      "showStepper": false,
+      "showStepperLabels": false,
+      "showStepName": false,
+      "showStepSubtitle": false,
+      "schema": {
+        "type": "object",
+        "properties": { "Erfolgsbestätigung": { "type": "object" } },
+        "required": []
+      },
+      "uischema": {
+        "type": "MainLinearLayout",
+        "options": { "scale": 3 },
+        "elements": [
+          {
+            "type": "ConfirmationMessageControl",
+            "scope": "#/properties/Erfolgsbestätigung",
+            "id": "REPLACE-WITH-UUID-BLOCK-3",
+            "options": {
+              "icon": "check-circle-fill",
+              "showCloseButton": true,
+              "title": "Vielen Dank!",
+              "text": "Wir haben Ihre Anfrage erhalten. Wir melden uns schnellstmöglich bei Ihnen.",
+              "closeButtonText": "Zurück zur Website"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

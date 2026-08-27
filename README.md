@@ -14,7 +14,8 @@ knowledge with live tools:
   connected-organization configuration;
 - Volt UI MCP for current components, props, and design tokens;
 - a thin platform guide plus focused skills for Apps, integrations,
-  end-to-end platform configuration, and native epilot interface design;
+  end-to-end platform configuration, journey building, and native epilot
+  interface design;
 - a deterministic local inspector for epilot App manifests and build inputs.
 
 The toolkit intentionally excludes Lima, SAP, and other ERP-specific behavior.

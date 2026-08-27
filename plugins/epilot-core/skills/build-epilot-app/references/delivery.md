@@ -31,6 +31,13 @@ Before live deploy or install, identify the authenticated user, organization,
 environment, App, and version. Reauthenticate when necessary without exposing
 the token. Explain what the sync will add, update, or delete.
 
+When a deploy creates a new version (`--new-version`, or automatically because
+the latest version is public and locked), you can optionally pass a short
+changeset description with `--changelog "<what changed>"` (max 250 characters).
+The deploy works without it, but providing one is recommended: it is stored on
+the version and shown in the App's version list. Derive it from the actual
+diff, not a generic phrase.
+
 After an authorized deployment, verify the actual surface:
 
 - entity capabilities on an appropriate schema and record;

@@ -22,6 +22,10 @@ copy right is what makes the journey good. Both are this skill's job.
   handing over.
 - [references/journey-blocks.md](references/journey-blocks.md) — the verified
   block catalog and the copy-from-existing rule for everything beyond it.
+- [references/journey-mappings.md](references/journey-mappings.md) — how
+  submissions become entities: mapping targets, the executing automation,
+  safe mode, and the simulate-first authoring loop. A journey without a
+  correct mapping is not done.
 
 ## Workflow
 
@@ -44,7 +48,12 @@ copy right is what makes the journey good. Both are this skill's job.
    only then set `settings.isActive: true`. Update replaces whole sections
    (steps, logics, rules, settings fields); read with
    `get_journey_definition`, modify, write back.
-5. **Verify.** Re-read the definition, walk the wiring (every button's
+5. **Map the submission.** Check `get_journey_mapping`: every block whose
+   data the organization needs must map onto an entity attribute, and the
+   executing automation must exist (create_journey sets both up; block
+   changes require mapping updates). Verify attribute names against
+   `get_entity_schema`; a test submission is the definitive check.
+6. **Verify.** Re-read the definition, walk the wiring (every button's
    `targetStepId` resolves, every block scope has a schema property — the
    curated tools validate this and return actionable errors), and run the
    design checklist. For a live check, open the journey in the epilot 360
@@ -53,9 +62,12 @@ copy right is what makes the journey good. Both are this skill's job.
 ## Execution tools
 
 - **epilot MCP (preferred):** `get_journey_definition`, `create_journey`,
-  `update_journey` are curated journey tools with structural validation and
-  safe responses. The default MCP connection is read-only; writes need the
-  write-enabled connection URL and the `mcp:write` consent. Journey
+  `update_journey`, `get_journey_mapping`, and `update_journey_mapping` are
+  curated journey tools with structural validation and
+  safe responses. Writes need the `mcp:write` consent, which the user
+  chooses on the epilot approval screen (read-only is preselected); when a
+  write is denied, ask the user to re-authenticate the connection and choose
+  read-and-write access. Journey
   operations through the generic `call_api_operation` route are blocked by
   design — raw Journey API responses embed signed access tokens.
 - **epilot CLI:** `npx epilot journey getJourneyV2 / createJourneyV2 /

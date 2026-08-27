@@ -54,6 +54,13 @@ run the checklist before handing a journey over.
 - Always attach the organization's design (`settings.designId`) — it carries
   brand colors, typography, and logo. `create_journey` falls back to the
   organization design automatically; only override it deliberately.
+- Designs are managed with the MCP directly: `list_designs` / `get_design`
+  to pick and inspect, `create_design` for a new brand look (a palette is
+  enough — typography is inherited from the default design), `update_design`
+  for changes. A design is shared configuration: changing one restyles every
+  journey and portal that uses it, so check `get_config_impact` (type
+  `designbuilder`) first. Journey-specific fine-tuning (accent and link
+  colors, font scale, custom CSS) lives in the design's `design_tokens`.
 - Choose the layout per step: `MainContentCartLayout` only where a cart or
   summary belongs next to the content (product and checkout steps);
   `MainLinearLayout` everywhere else.

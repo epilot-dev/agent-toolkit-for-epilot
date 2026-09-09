@@ -49,7 +49,7 @@ copy right is what makes the journey good. Both are this skill's job.
 2. **Discover before designing.** Existing journeys are the best source of
    proven block shapes and organizational conventions:
    - `search_configuration` with `type: journey` lists what exists;
-   - `get_journey_definition` on a comparable journey yields real steps,
+   - `get_journey` on a comparable journey yields real steps,
      blocks, and settings to adapt;
    - `get_config_dependencies` / `get_config_impact` show what a journey is
      wired to before you change it.
@@ -60,7 +60,7 @@ copy right is what makes the journey good. Both are this skill's job.
    `isActive: false` by default. Review, refine with `update_journey`, and
    only then set `settings.isActive: true`. Update replaces whole sections
    (steps, logics, rules, settings fields); read with
-   `get_journey_definition`, modify, write back.
+   `get_journey`, modify, write back.
 5. **Map the submission.** Check `get_journey_mapping`: every block whose
    data the organization needs must map onto an entity attribute, and the
    executing automation must exist (create_journey sets both up; block
@@ -74,15 +74,15 @@ copy right is what makes the journey good. Both are this skill's job.
 
 ## Execution tools
 
-- **epilot MCP (preferred):** `get_journey_definition`, `create_journey`,
+- **epilot MCP (preferred):** `get_journey`, `create_journey`,
   `update_journey`, `get_journey_mapping`, and `update_journey_mapping` are
   curated journey tools with structural validation and
   safe responses. Writes need the `mcp:write` consent, which the user
   chooses on the epilot approval screen (read-only is preselected); when a
   write is denied, ask the user to re-authenticate the connection and choose
   read-and-write access. Journey
-  operations through the generic `call_api_operation` route are blocked by
-  design — raw Journey API responses embed signed access tokens.
+  writes through the generic `call_api_operation` route are redirected to
+  these tools; generic reads have the signed access token stripped.
 - **epilot CLI:** `npx epilot journey getJourneyV2 / createJourneyV2 /
   updateJourneyV2` offer the raw operations for scripted use. Prefer the MCP
   tools in agent sessions: they validate wiring and never expose tokens.

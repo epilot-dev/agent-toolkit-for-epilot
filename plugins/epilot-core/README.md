@@ -18,6 +18,7 @@ systems to epilot. The visible name is **epilot**; the package ID remains
   journeys, products and pricing, workflows, automations, portals, and
   permissions, using the connected organization's actual state.
 - `build-epilot-journey` creates and updates customer-facing forms and funnels.
+- `build-epilot-workflow` creates internal processes with phases, branches, loops, and automated steps.
 - `epilot-interface-designer` uses Volt UI components and tokens to make App
   interfaces feel native, accessible, and task-oriented.
 

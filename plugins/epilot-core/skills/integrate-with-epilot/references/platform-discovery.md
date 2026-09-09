@@ -26,10 +26,10 @@ The bundled epilot MCP is the preferred discovery surface.
   workflows, or related configuration.
 - Use `get_config_dependencies` and `get_config_impact` before proposing a
   change to an existing resource.
-- Use curated tools such as `list_webhooks`, `list_journeys`, or
-  `list_portals` when their credential-safe projection covers the need;
-  their raw API equivalents are blocked because the responses embed
-  credentials.
+- Read webhooks, journeys, and portal configs through `search_configuration`
+  and `call_api_operation`; the generic route strips embedded credentials
+  (webhook auth blocks, journey access tokens, portal Cognito details) and
+  lists them as `redacted_fields`.
 
 Call `whoami` before reporting organization-specific findings. Label
 documented, observed, and inferred facts separately.

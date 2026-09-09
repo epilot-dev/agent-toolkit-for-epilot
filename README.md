@@ -89,6 +89,8 @@ regardless of the approved consent.
   external integration.
 - Configure schemas, journeys, products and pricing, workflows, automations,
   portals, and permissions end to end.
+- Build workflows with phases, conditional branches, retry loops, and
+  automated steps from a compact process description.
 - Scaffold and validate Apps with the current epilot CLI and manifest schema.
 - Discover current documentation and exact OpenAPI operations through MCP.
 - Inspect the connected organization's actual schemas and configuration when
@@ -128,6 +130,7 @@ only when needed:
             ├── integrate-with-epilot/
             ├── configure-epilot/
             ├── build-epilot-journey/
+            ├── build-epilot-workflow/
             └── epilot-interface-designer/
 ```
 

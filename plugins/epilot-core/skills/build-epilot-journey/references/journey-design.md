@@ -40,7 +40,7 @@ run the checklist before handing a journey over.
 
 - Write in the customer's language; for the German market use the du/Sie
   register the organization uses elsewhere — check an existing journey's copy
-  with `get_journey_definition` and match it. Never mix registers.
+  with `get_journey` and match it. Never mix registers.
 - Step names are short nouns ("Kontaktdaten", "Ihr Tarif"), not sentences.
 - Ask only for data the organization will use. Every field needs a consumer:
   a mapping, an automation, or a human process. If nothing consumes it, drop
@@ -54,8 +54,9 @@ run the checklist before handing a journey over.
 - Always attach the organization's design (`settings.designId`) — it carries
   brand colors, typography, and logo. `create_journey` falls back to the
   organization design automatically; only override it deliberately.
-- Designs are managed with the MCP directly: `list_designs` / `get_design`
-  to pick and inspect, `create_design` for a new brand look (a palette is
+- Designs are managed with the MCP directly: `search_configuration` (type
+  `designbuilder`) to find one and `call_api_operation getDesign` to inspect
+  it, `create_design` for a new brand look (a palette is
   enough — typography is inherited from the default design), `update_design`
   for changes. A design is shared configuration: changing one restyles every
   journey and portal that uses it, so check `get_config_impact` (type

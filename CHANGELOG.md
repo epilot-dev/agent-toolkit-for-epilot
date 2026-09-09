@@ -16,6 +16,10 @@ project follows [Semantic Versioning](https://semver.org/).
 - `configure-epilot` skill for end-to-end platform configuration: schemas,
   journeys, products and pricing, workflows, automations, portals, and
   permissions.
+- `build-epilot-workflow` skill for workflows of the flows system: discovery,
+  the compact graph description for the epilot MCP `create_workflow` tool
+  (phases, decision branches, default branches, loops, automation tasks),
+  design conventions, and verification.
 
 ### Changed
 

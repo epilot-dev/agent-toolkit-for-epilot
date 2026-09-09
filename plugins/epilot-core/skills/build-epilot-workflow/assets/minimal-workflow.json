@@ -1,0 +1,66 @@
+{
+  "$comment": "Complete create_workflow description: a manual retry loop, an automatic routing decision on an opportunity attribute, and an automation task. Replace the email template id with one from search_configuration (type emailtemplate), check customer_type against get_entity_schema, run with dryRun: true first, then remove dryRun to create.",
+  "name": "Lead-Qualifizierung",
+  "description": "Kunden erreichen, Kundentyp bestimmen, passend weiterleiten.",
+  "trigger": { "type": "manual", "entitySchema": "opportunity" },
+  "tasks": [
+    {
+      "id": "call",
+      "name": "Kunden anrufen",
+      "type": "MANUAL",
+      "next": "reached",
+      "assigned_to": [{ "variable": "{{entity.owner}}" }]
+    },
+    {
+      "id": "reached",
+      "name": "Kunde erreicht?",
+      "type": "DECISION",
+      "mode": "manual",
+      "branches": [{ "id": "yes", "name": "Ja", "next": "segment" }],
+      "defaultBranch": { "name": "Nein, erneut versuchen", "next": "note" },
+      "loop": {
+        "branch": "default",
+        "restartAt": "call",
+        "maxIterations": 3,
+        "exit": { "name": "Nicht erreichbar", "next": "close_lost" }
+      }
+    },
+    { "id": "note", "name": "Notiz hinterlassen", "type": "MANUAL" },
+    {
+      "id": "segment",
+      "name": "Kundentyp?",
+      "type": "DECISION",
+      "branches": [
+        {
+          "id": "private",
+          "name": "Privatkunde",
+          "next": "welcome",
+          "statements": [
+            {
+              "source": {
+                "origin": "trigger",
+                "origin_type": "entity",
+                "schema": "opportunity",
+                "attribute": "customer_type",
+                "attribute_type": "select"
+              },
+              "operator": "equals",
+              "values": ["PRIVATE"]
+            }
+          ]
+        }
+      ],
+      "defaultBranch": { "name": "Geschäftskunde", "next": "key_account" }
+    },
+    {
+      "id": "welcome",
+      "name": "Willkommens-E-Mail senden",
+      "type": "AUTOMATION",
+      "action": { "type": "send-email", "config": { "email_template_id": "REPLACE-WITH-EMAIL-TEMPLATE-ID" } }
+    },
+    { "id": "key_account", "name": "Key-Account-Manager zuweisen", "type": "MANUAL" },
+    { "id": "close_lost", "name": "Als verloren schließen", "type": "MANUAL" }
+  ],
+  "enabled": false,
+  "dryRun": true
+}

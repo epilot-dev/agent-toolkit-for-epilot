@@ -1,7 +1,7 @@
 # Journey anatomy
 
 A journey definition is one JSON document. The shape below is what
-`get_journey_definition` returns and what `create_journey` / `update_journey`
+`get_journey` returns and what `create_journey` / `update_journey`
 accept (the server injects `organizationId` and manages the signed
 `publicToken`; neither appears in agent-facing payloads).
 
@@ -79,4 +79,4 @@ include it and updates preserve it automatically.
   isRequired }`; type is an entity slug or `text`.
 
 Copy working logic and rule shapes from an existing journey via
-`get_journey_definition` before authoring new ones.
+`get_journey` before authoring new ones.

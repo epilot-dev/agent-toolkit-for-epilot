@@ -27,9 +27,9 @@ opportunity) rather than one entity per form:
 - Most automations need only four primitive actions: map entity, send
   email, trigger workflow, and create document. If a design needs more
   exotic actions, first check whether the process model is wrong.
-- For branching processes, use a router automation that starts one of
-  several workflow definitions based on the anchor entity's data, keeping
-  each workflow linear and readable.
+- For branching processes, prefer DECISION tasks inside one workflow (see
+  `build-epilot-workflow`); a router automation that starts one of several
+  workflows is the fallback when the branches share nothing.
 
 ## Portal wiring
 

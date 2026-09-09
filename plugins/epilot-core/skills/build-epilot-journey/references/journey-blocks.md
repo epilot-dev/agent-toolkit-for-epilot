@@ -8,7 +8,7 @@ a matching key in the step's `schema.properties`.
 For every other block type (products, addresses, uploads, payment, meter
 readings, consents, availability checks, custom App blocks …) read a journey
 that already uses it — `search_configuration` with `type: journey`, then
-`get_journey_definition` — and adapt the real options object. Block options
+`get_journey` — and adapt the real options object. Block options
 are rich and version-dependent; inventing them produces journeys that render
 wrong even when the API accepts them.
 

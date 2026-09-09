@@ -36,6 +36,9 @@ delivers the outcome and verify each layer before adding the next.
 - Use `build-epilot-journey` when the work centers on creating or changing
   a journey — it carries the step/block model, the design conventions, and
   the curated journey tools.
+- Use `build-epilot-workflow` when the work centers on a workflow (Prozess):
+  task graphs with phases, decision branches, loops, and automation tasks
+  through the curated `create_workflow` tool.
 - Use `build-epilot-app` if the outcome needs custom code or UI beyond
   supported configuration. Use `integrate-with-epilot` if an external system
   must exchange data with epilot.

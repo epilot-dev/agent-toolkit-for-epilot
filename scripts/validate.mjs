@@ -58,6 +58,27 @@ if (portable.version !== codex.version) failures.push("Portable and Codex versio
 if (portable.version !== claude.version) failures.push("Portable and Claude versions differ");
 if (codex.interface?.defaultPrompt?.length > 3) failures.push("Codex default prompts must not exceed three entries");
 
+// Codex requires visual assets to be plugin-relative "./" paths that resolve to real files.
+for (const field of ["composerIcon", "logo", "logoDark"]) {
+  const value = codex.interface?.[field];
+  if (value === undefined) continue;
+  if (typeof value !== "string" || !value.startsWith("./")) {
+    failures.push(`Codex interface.${field} must be a relative path starting with ./`);
+  } else if (!fs.existsSync(path.join(plugin, value))) {
+    failures.push(`Codex interface.${field} points to a missing file: ${value}`);
+  }
+}
+for (const shot of codex.interface?.screenshots ?? []) {
+  if (typeof shot !== "string" || !shot.startsWith("./assets/") || !shot.endsWith(".png")) {
+    failures.push(`Codex screenshot must be a PNG under ./assets/: ${shot}`);
+  } else if (!fs.existsSync(path.join(plugin, shot))) {
+    failures.push(`Codex screenshot points to a missing file: ${shot}`);
+  }
+}
+if (codex.interface?.brandColor !== undefined && !/^#[0-9A-Fa-f]{6}$/.test(codex.interface.brandColor)) {
+  failures.push("Codex interface.brandColor must be a 6-digit hex color");
+}
+
 for (const [label, manifest] of [["portable", portable], ["Codex", codex], ["Claude", claude]]) {
   if (manifest.repository !== "https://github.com/epilot-dev/agent-toolkit-for-epilot") {
     failures.push(`${label} manifest repository is incorrect`);

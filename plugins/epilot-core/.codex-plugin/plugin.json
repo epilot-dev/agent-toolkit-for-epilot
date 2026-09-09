@@ -24,6 +24,9 @@
     "longDescription": "Explains epilot's platform model, guides App and integration architecture, configures schemas, journeys, products, workflows, and automations end to end, discovers current APIs and documentation, inspects connected organization configuration, and uses Volt UI components and tokens for polished interfaces.",
     "developerName": "epilot",
     "category": "Developer Tools",
+    "brandColor": "#2D83FE",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png",
     "capabilities": [
       "Read",
       "Write",

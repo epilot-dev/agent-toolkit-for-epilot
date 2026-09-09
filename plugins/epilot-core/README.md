@@ -1,7 +1,8 @@
-# epilot Developer Toolkit
+# epilot
 
-Use this plugin to design, implement, review, and troubleshoot software built
-on epilot.
+Configure business processes, build journeys and Apps, and connect external
+systems to epilot. The visible name is **epilot**; the package ID remains
+`epilot-core`.
 
 ## Skills
 
@@ -16,6 +17,7 @@ on epilot.
 - `configure-epilot` sets up the platform end to end: entity schemas,
   journeys, products and pricing, workflows, automations, portals, and
   permissions, using the connected organization's actual state.
+- `build-epilot-journey` creates and updates customer-facing forms and funnels.
 - `epilot-interface-designer` uses Volt UI components and tokens to make App
   interfaces feel native, accessible, and task-oriented.
 

@@ -17,7 +17,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "check": "node scripts/validate.mjs && node --test tests/*.test.mjs",
+    "check": "node scripts/validate.mjs && python3 scripts/validate-skills.py && node --test tests/*.test.mjs",
     "inspect:app": "node plugins/epilot-core/skills/build-epilot-app/scripts/inspect-epilot-app.mjs"
   }
 }

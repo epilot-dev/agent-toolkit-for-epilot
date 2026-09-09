@@ -1,0 +1,4 @@
+interface:
+  display_name: "Connect a System"
+  short_description: "Connect external systems to epilot APIs and events"
+  default_prompt: "Use $integrate-with-epilot to connect this external system to epilot."

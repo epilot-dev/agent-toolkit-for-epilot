@@ -24,5 +24,13 @@ jobs:
         with:
           node-version: 22
 
+      - name: Set up Python for skill validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install validation dependencies
+        run: python3 -m pip install -r requirements-dev.txt
+
       - name: Validate plugins and run tests
         run: npm run check

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Understand epilot"
+  short_description: "Choose the right approach for your epilot process"
+  default_prompt: "Use $epilot-platform-guide to choose how to implement this process in epilot."

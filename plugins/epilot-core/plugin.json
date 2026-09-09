@@ -16,5 +16,33 @@
     "configuration",
     "developer",
     "volt-ui"
-  ]
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "epilot",
+        "shortDescription": "Configure, build, integrate",
+        "longDescription": "Configure epilot processes, build customer journeys and Apps, and connect external systems. Use current platform documentation and your connected organization to work with entities, products, workflows, portals, and integrations. Design App interfaces with Volt UI guidance.",
+        "developerName": "epilot",
+        "category": "Business & Operations",
+        "brandColor": "#2D83FE",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png",
+        "capabilities": [
+          "Read",
+          "Write",
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Configure this business process in epilot.",
+          "Build a customer journey for this service.",
+          "Connect this external system to epilot."
+        ],
+        "websiteURL": "https://docs.epilot.io/agent-toolkit",
+        "privacyPolicyURL": "https://www.epilot.cloud/informationspflichten",
+        "termsOfServiceURL": "https://www.epilot.cloud/agb",
+        "supportURL": "https://help.epilot.cloud/en_US"
+      }
+    }
+  }
 }

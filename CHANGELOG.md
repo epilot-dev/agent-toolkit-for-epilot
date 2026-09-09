@@ -8,12 +8,23 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Friendly display names, descriptions, and starter prompts for all six skills.
+- Consistent conversation and customer-content language guidance, with bilingual
+  routing scenarios and stricter listing/MCP consistency checks.
+- OpenAI listing metadata in the portable manifest, including public privacy,
+  terms, and support links.
 - `configure-epilot` skill for end-to-end platform configuration: schemas,
   journeys, products and pricing, workflows, automations, portals, and
   permissions.
 
 ### Changed
 
+- Fix invalid YAML in the configuration skill description and validate all skill
+  frontmatter and interface metadata in CI.
+- Display the plugin as **epilot**, keeping the `epilot-core` package identifier.
+- Use Business & Operations as the OpenAI listing category and shorten its tagline.
+- Correct the ChatGPT installation documentation and describe local execution
+  requirements separately from remote MCP access.
 - Renamed the plugin from `epilot-developer` to `epilot-core` to cover
   configuration alongside App and integration development. The rename happened
   before any public release, so no installed plugin is affected.

@@ -11,6 +11,19 @@ JSON Schema (one property per block) and a uischema (layout plus typed block
 elements). Getting the structure right is necessary; getting the flow and
 copy right is what makes the journey good. Both are this skill's job.
 
+## Language and customer-facing content
+
+- Respond in the user's language unless they request another language.
+- Preserve API identifiers, schema keys, commands, enum values, and product
+  names exactly; translate explanatory text and display labels instead.
+- Write customer-facing content in the requested audience's language. When
+  editing an existing journey, portal, or App, preserve its locale and the
+  organization's du/Sie usage unless the user requests a change. Conversation
+  language alone is not a request to translate an existing resource.
+- Use the target epilot resource's supported translation fields. Keep existing
+  translations and required locales; do not invent locale keys or overwrite
+  another language while adding a translation.
+
 ## Read first
 
 - [references/journey-anatomy.md](references/journey-anatomy.md) — the

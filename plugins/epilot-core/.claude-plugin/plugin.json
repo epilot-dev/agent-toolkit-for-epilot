@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "epilot-core",
-  "displayName": "epilot Core",
+  "displayName": "epilot",
   "version": "0.1.0",
   "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
   "author": {

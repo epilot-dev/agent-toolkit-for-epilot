@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const plugin = path.join(root, "plugins", "epilot-core");
@@ -58,6 +59,50 @@ if (portable.version !== codex.version) failures.push("Portable and Codex versio
 if (portable.version !== claude.version) failures.push("Portable and Claude versions differ");
 if (codex.interface?.defaultPrompt?.length > 3) failures.push("Codex default prompts must not exceed three entries");
 
+// Root OpenAI metadata is canonical for portable hosts. The fallback keeps the
+// same presentation except supportURL, which older compatibility validators
+// do not accept. See OpenAI's plugin packaging and submission error references.
+const listing = portable.extensions?.["com.openai"]?.interface;
+if (!listing || typeof listing !== "object" || Array.isArray(listing)) {
+  failures.push("Portable OpenAI listing metadata is missing");
+} else {
+  const { supportURL, ...fallbackListing } = listing;
+  if (!isDeepStrictEqual(fallbackListing, codex.interface)) {
+    failures.push("Portable and Codex listing metadata differ");
+  }
+  if (listing.displayName !== claude.displayName) failures.push("Client display names differ");
+  if (marketplace.plugins?.[0]?.category !== listing.category) failures.push("Marketplace category differs from listing");
+  // These are the final public-directory limits, stricter than local ingestion.
+  for (const [field, limit] of Object.entries({
+    displayName: 30, shortDescription: 30, longDescription: 4000, developerName: 80,
+  })) {
+    const value = listing[field];
+    if (typeof value !== "string" || !value.trim() || [...value].length > limit) {
+      failures.push(`Listing ${field} must contain 1-${limit} characters`);
+    }
+  }
+  for (const field of ["websiteURL", "privacyPolicyURL", "termsOfServiceURL", "supportURL"]) {
+    try {
+      const value = listing[field];
+      if (typeof value !== "string" || value.length > 1024) throw new Error();
+      const url = new URL(value);
+      if (url.protocol !== "https:" || url.username || url.password) throw new Error();
+    } catch {
+      failures.push(`Listing ${field} must be an HTTPS URL of at most 1024 characters`);
+    }
+  }
+  if (!Array.isArray(listing.defaultPrompt) || listing.defaultPrompt.length > 3 ||
+      listing.defaultPrompt.some((prompt) => typeof prompt !== "string" || !prompt.trim() ||
+        [...prompt].length > 128 || /[\r\n]/.test(prompt))) {
+    failures.push("Listing must have at most three single-line starter prompts of 1-128 characters");
+  }
+}
+
+for (const entry of fs.readdirSync(path.join(plugin, "skills"), { withFileTypes: true })) {
+  if (!entry.isDirectory() || entry.name.startsWith(".")) continue;
+  requireFile(`plugins/epilot-core/skills/${entry.name}/agents/openai.yaml`);
+}
+
 // Codex requires visual assets to be plugin-relative "./" paths that resolve to real files.
 for (const field of ["composerIcon", "logo", "logoDark"]) {
   const value = codex.interface?.[field];
@@ -100,6 +145,20 @@ for (const relative of ["plugins/epilot-core/mcp.json", "plugins/epilot-core/.mc
   const config = readJson(relative);
   if (config.mcpServers?.epilot?.url !== "https://mcp.epilot.io/mcp") failures.push(`${relative}: epilot MCP missing`);
   if (!config.mcpServers?.["volt-ui"]) failures.push(`${relative}: Volt UI MCP missing`);
+}
+const portableMcp = readJson("plugins/epilot-core/mcp.json");
+const compatibilityMcp = readJson("plugins/epilot-core/.mcp.json");
+if (portableMcp.$schema !== "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json") {
+  failures.push("Portable MCP schema is missing");
+}
+const normalizedServers = Object.fromEntries(Object.entries(portableMcp.mcpServers).map(([name, server]) => {
+  const { type, ...config } = server;
+  if (type === "streamable-http") config.type = "http";
+  else if (type !== "stdio") failures.push(`Unsupported portable MCP transport for ${name}`);
+  return [name, config];
+}));
+if (!isDeepStrictEqual(normalizedServers, compatibilityMcp.mcpServers)) {
+  failures.push("Portable and compatibility MCP connections differ");
 }
 
 const sourceText = fs.readFileSync(path.join(root, "README.md"), "utf8") +

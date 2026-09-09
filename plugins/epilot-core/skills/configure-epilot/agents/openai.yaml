@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure epilot"
+  short_description: "Set up entities, products, workflows, and portals"
+  default_prompt: "Use $configure-epilot to configure this business process in epilot."

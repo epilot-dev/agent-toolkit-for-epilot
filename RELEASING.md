@@ -19,6 +19,20 @@ Toolkit releases use Semantic Versioning and Git tags in the form `vX.Y.Z`.
 7. Create a GitHub release using the matching changelog section.
 8. Verify installation from the GitHub marketplace in both Codex and Claude
    Code using a clean environment.
+9. Run [language and routing checks](tests/language-and-routing.md) in the
+   intended clients and record results for the release revision. Test ChatGPT
+   separately when distributing there; local installation is not publication.
+
+For a public OpenAI directory submission, verify the current listing limits
+and the applicability of the linked privacy/terms notices to the integration.
+The checked-in links are existing epilot notices, not plugin-specific terms.
+Submit the remote MCP endpoint with its skills; resolve the local Volt UI
+dependency for the intended execution environment before claiming parity.
+
+Keep `plugin.json`'s `extensions.com.openai.interface` and the Codex fallback
+in sync. The root extension also supplies `supportURL`; the older compatibility
+manifest omits that field for legacy ingestion. `npm run check` checks this
+relationship and the portable/compatibility MCP server definitions.
 
 Codex cachebuster metadata may be used during local development, but public
 release manifests should use the clean release version in every client

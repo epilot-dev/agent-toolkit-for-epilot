@@ -13,11 +13,13 @@ feature requests, documentation improvements, and pull requests are welcome.
 ## Development setup
 
 The repository requires Node.js 22 or newer and has no installed runtime
-dependencies.
+dependencies. Skill validation additionally needs Python 3.9+ and PyYAML
+from `requirements-dev.txt` (use a virtual environment if required locally).
 
 ```bash
 git clone https://github.com/epilot-dev/agent-toolkit-for-epilot.git
 cd agent-toolkit-for-epilot
+python3 -m pip install -r requirements-dev.txt
 npm run check
 ```
 

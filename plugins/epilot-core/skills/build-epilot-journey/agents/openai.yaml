@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build a Journey"
+  short_description: "Create customer forms and journeys in epilot"
+  default_prompt: "Use $build-epilot-journey to build a customer journey for this service."

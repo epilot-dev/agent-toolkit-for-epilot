@@ -8,6 +8,19 @@ description: Design, implement, or review the user interface of an epilot App so
 Deliver an interface appropriate to its epilot surface and user task. Reuse
 current Volt UI primitives and tokens rather than recreating the design system.
 
+## Language and customer-facing content
+
+- Respond in the user's language unless they request another language.
+- Preserve API identifiers, schema keys, commands, enum values, and product
+  names exactly; translate explanatory text and display labels instead.
+- Write customer-facing content in the requested audience's language. When
+  editing an existing journey, portal, or App, preserve its locale and the
+  organization's du/Sie usage unless the user requests a change. Conversation
+  language alone is not a request to translate an existing resource.
+- Use the target epilot resource's supported translation fields. Keep existing
+  translations and required locales; do not invent locale keys or overwrite
+  another language while adding a translation.
+
 ## Use the live design-system tool
 
 The plugin bundles the official Volt UI MCP server. Use:

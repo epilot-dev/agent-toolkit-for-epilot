@@ -19,11 +19,11 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "epilot Core",
-    "shortDescription": "Build epilot Apps and integrations and configure the platform",
-    "longDescription": "Explains epilot's platform model, guides App and integration architecture, configures schemas, journeys, products, workflows, and automations end to end, discovers current APIs and documentation, inspects connected organization configuration, and uses Volt UI components and tokens for polished interfaces.",
+    "displayName": "epilot",
+    "shortDescription": "Configure, build, integrate",
+    "longDescription": "Configure epilot processes, build customer journeys and Apps, and connect external systems. Use current platform documentation and your connected organization to work with entities, products, workflows, portals, and integrations. Design App interfaces with Volt UI guidance.",
     "developerName": "epilot",
-    "category": "Developer Tools",
+    "category": "Business & Operations",
     "brandColor": "#2D83FE",
     "composerIcon": "./assets/logo.png",
     "logo": "./assets/logo.png",
@@ -33,11 +33,13 @@
       "Interactive"
     ],
     "defaultPrompt": [
-      "Build an epilot App from this idea.",
-      "Configure this business process end to end in epilot.",
-      "Connect this external service directly to epilot."
+      "Configure this business process in epilot.",
+      "Build a customer journey for this service.",
+      "Connect this external system to epilot."
     ],
-    "websiteURL": "https://docs.epilot.io/agent-toolkit"
+    "websiteURL": "https://docs.epilot.io/agent-toolkit",
+    "privacyPolicyURL": "https://www.epilot.cloud/informationspflichten",
+    "termsOfServiceURL": "https://www.epilot.cloud/agb"
   },
   "mcpServers": "./.mcp.json"
 }

@@ -9,6 +9,19 @@ Give the agent enough stable context to make a good first architectural
 decision without copying the epilot documentation into the prompt. Use current
 documentation and live tools for changing details.
 
+## Language and customer-facing content
+
+- Respond in the user's language unless they request another language.
+- Preserve API identifiers, schema keys, commands, enum values, and product
+  names exactly; translate explanatory text and display labels instead.
+- Write customer-facing content in the requested audience's language. When
+  editing an existing journey, portal, or App, preserve its locale and the
+  organization's du/Sie usage unless the user requests a change. Conversation
+  language alone is not a request to translate an existing resource.
+- Use the target epilot resource's supported translation fields. Keep existing
+  translations and required locales; do not invent locale keys or overwrite
+  another language while adding a translation.
+
 ## Route the work
 
 - Read [references/platform-model.md](references/platform-model.md) for the

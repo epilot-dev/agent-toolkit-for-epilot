@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design an Interface"
+  short_description: "Design accessible epilot App interfaces with Volt UI"
+  default_prompt: "Use $epilot-interface-designer to design the interface for this epilot App."

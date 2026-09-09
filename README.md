@@ -7,7 +7,8 @@
 Give AI agents the platform knowledge and live tools they need to build Apps
 and integrations on epilot and to configure the platform end to end.
 
-The first installable plugin, `epilot-core`, combines portable platform
+The plugin appears as **epilot** and keeps `epilot-core` as its stable
+technical identifier. It combines portable platform
 knowledge with live tools:
 
 - epilot MCP for current documentation, OpenAPI discovery, entity schemas, and
@@ -43,16 +44,32 @@ Run these commands inside Claude Code:
 /reload-plugins
 ```
 
-### ChatGPT and other MCP clients
+### ChatGPT
 
-ChatGPT does not install marketplace plugins, but it can use the epilot MCP
-directly. Add `https://mcp.epilot.io/mcp` as a custom connector
-(Settings → Connectors) and authenticate with your epilot account when
-prompted. The same URL works in any MCP-capable client.
+ChatGPT and Codex support plugins, including skills and MCP tools. Local and
+Git marketplaces are authoring and team-distribution sources; adding this repo
+to Codex does not publish it to a ChatGPT workspace or the universal directory.
+For desktop testing, use a personal or repository marketplace. For workspace
+distribution, use the workspace's supported import or publishing flow. Public
+distribution requires submission and review by OpenAI.
 
-Direct MCP access provides current documentation, API discovery, and
-organization inspection. The skills-based development workflows are available
-in Codex and Claude Code.
+See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins)
+for current installation and distribution steps. This repository is the source
+package; it does not imply a published ChatGPT listing.
+
+The epilot MCP is hosted at `https://mcp.epilot.io/mcp`. Volt UI runs locally
+through Node.js and `npx`, and the App inspector also needs a local execution
+environment. A web installation does not provision those local processes.
+For public remote MCP distribution, host the required servers over HTTPS or
+use an explicitly supported local integration.
+
+### Other MCP clients
+
+Connect `https://mcp.epilot.io/mcp` in an MCP-capable client and authenticate
+when prompted. Direct MCP access provides documentation, API discovery, and
+organization tools; it does not install this package's skills or the Volt UI
+server. Available tools remain subject to the client's capabilities and your
+epilot permissions.
 
 When the epilot MCP is first used, your agent may ask you to authenticate and
 select an organization. Access remains subject to your epilot permissions.
@@ -100,7 +117,7 @@ only when needed:
 ├── .github/                          # CI and contribution templates
 └── plugins/
     └── epilot-core/
-        ├── plugin.json                 # portable Agent Plugins 1.0 manifest
+        ├── plugin.json                 # portable manifest + OpenAI listing metadata
         ├── mcp.json                    # portable MCP configuration
         ├── .codex-plugin/plugin.json   # Codex manifest
         ├── .claude-plugin/plugin.json  # Claude Code manifest
@@ -110,8 +127,25 @@ only when needed:
             ├── build-epilot-app/
             ├── integrate-with-epilot/
             ├── configure-epilot/
+            ├── build-epilot-journey/
             └── epilot-interface-designer/
 ```
+
+## Language support
+
+Skills are maintained in English and instruct the agent to respond in the
+user's language. Customer-facing copy follows the requested audience or the
+existing resource's locale, including consistent German du/Sie usage.
+API identifiers, schema keys, enum values, and commands are not translated.
+
+The plugin listing and friendly skill labels currently use English, while the
+brand remains **epilot**. The portable manifest has no standard locale map;
+do not add invented `en`/`de` objects to string fields or assume automatic
+listing translation. Each skill's `agents/openai.yaml` supplies its display
+name, short description, and starter prompt.
+
+Before a release, run the [language and routing checks](tests/language-and-routing.md)
+in the intended client. Structural checks do not establish model behavior.
 
 ## Prerequisites
 
@@ -124,10 +158,13 @@ organization-specific inspection depends on authentication and permissions.
 
 ## Development
 
-Node.js 22 or newer is required. The toolkit itself has no installed package
-dependencies.
+Node.js 22 or newer is required. Skill validation also needs Python 3.9+
+and the pinned development dependency in `requirements-dev.txt`. These are
+maintainer checks; installing the plugin does not require PyYAML.
+The toolkit has no installed JavaScript package dependencies.
 
 ```bash
+python3 -m pip install -r requirements-dev.txt
 npm run check
 npm run inspect:app -- /path/to/an/epilot-app
 ```

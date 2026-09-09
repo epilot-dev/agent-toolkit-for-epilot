@@ -1,6 +1,6 @@
 ---
 name: configure-epilot
-description: Configure the epilot platform end to end in a connected organization: entity schemas and attributes, taxonomies, journeys, entity mappings, products and pricing, automations, workflows, customer and installer portals, roles and permissions, and blueprints. Use when the user wants to set up, change, audit, or package platform configuration — including plain-language business outcomes such as "customers should be able to order X online" or "new requests should create a task for sales" — rather than build custom code. If it is unclear whether the solution should be configuration, an App, or an integration, use epilot-platform-guide first.
+description: "Configure the epilot platform end to end in a connected organization: entity schemas and attributes, taxonomies, journeys, entity mappings, products and pricing, automations, workflows, customer and installer portals, roles and permissions, and blueprints. Use when the user wants to set up, change, audit, or package platform configuration — including plain-language business outcomes such as \"customers should be able to order X online\" or \"new requests should create a task for sales\" — rather than build custom code. If it is unclear whether the solution should be configuration, an App, or an integration, use epilot-platform-guide first."
 ---
 
 # Configure epilot end to end
@@ -8,6 +8,19 @@ description: Configure the epilot platform end to end in a connected organizatio
 Produce working, verified platform configuration in the connected
 organization. Configuration is layered; build the smallest set of layers that
 delivers the outcome and verify each layer before adding the next.
+
+## Language and customer-facing content
+
+- Respond in the user's language unless they request another language.
+- Preserve API identifiers, schema keys, commands, enum values, and product
+  names exactly; translate explanatory text and display labels instead.
+- Write customer-facing content in the requested audience's language. When
+  editing an existing journey, portal, or App, preserve its locale and the
+  organization's du/Sie usage unless the user requests a change. Conversation
+  language alone is not a request to translate an existing resource.
+- Use the target epilot resource's supported translation fields. Keep existing
+  translations and required locales; do not invent locale keys or overwrite
+  another language while adding a translation.
 
 ## Route the work
 

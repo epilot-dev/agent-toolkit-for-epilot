@@ -61,8 +61,9 @@ delays (`{ "mode": "delayed", "duration": 2, "unit": "days" }`).
   starts a new execution on every edit of every record of that schema.
 - Enabled workflows count against the organization's workflow quota; keep
   drafts disabled and delete abandoned experiments.
-- `updateFlowTemplate` replaces the whole template. Always PUT the full
-  stored document with its `updated_at`; a stale write returns 409.
+- `update_workflow` replaces the whole graph. Keep task ids stable so their
+  automations survive; a removed task's automation is deleted. Describe the
+  full target state, not a diff, and dry-run it first.
 
 ## Verification checklist
 

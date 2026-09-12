@@ -19,7 +19,8 @@ project follows [Semantic Versioning](https://semver.org/).
 - `build-epilot-workflow` skill for workflows of the flows system: discovery,
   the compact graph description for the epilot MCP `create_workflow` tool
   (phases, decision branches, default branches, loops, automation tasks),
-  design conventions, and verification.
+  graph replacement with `update_workflow`, design conventions, and
+  verification.
 
 ### Changed
 

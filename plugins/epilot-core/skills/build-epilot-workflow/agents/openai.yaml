@@ -1,4 +1,4 @@
 interface:
   display_name: "Build a Workflow"
-  short_description: "Create internal processes with branches and loops"
+  short_description: "Create and change processes with branches and loops"
   default_prompt: "Use $build-epilot-workflow to set up this business process as an epilot workflow."

@@ -1,6 +1,6 @@
 ---
 name: build-epilot-workflow
-description: Create epilot workflows (Prozesse) — the task graphs of the flows system with phases, decision branches, loops, and automation tasks — through the epilot MCP `create_workflow` tool. Use when the user wants a new internal process, a workflow that starts on an entity event or from a journey, conditional routing of cases, retry loops, or automated steps such as emails and webhooks inside a process. For customer-facing forms use build-epilot-journey; for other configuration use configure-epilot.
+description: Create and change epilot workflows (Prozesse) — the task graphs of the flows system with phases, decision branches, loops, and automation tasks — through the epilot MCP `create_workflow` and `update_workflow` tools. Use when the user wants a new internal process, changes to an existing workflow's steps or routing, a workflow that starts on an entity event or from a journey, conditional routing of cases, retry loops, or automated steps such as emails and webhooks inside a process. For customer-facing forms use build-epilot-journey; for other configuration use configure-epilot.
 ---
 
 # Build epilot workflows
@@ -60,9 +60,9 @@ ids to look up first, how to model a process well, and how to verify it.
 5. **Create disabled, review, enable.** `create_workflow` creates the
    workflow disabled. Check the result: every AUTOMATION task must show an
    `automation_id`, the trigger must show one for type `automation`, and
-   `structure.healed` must be false. Then enable with `call_api_operation
-   updateFlowTemplate` using the full stored template, `enabled: true`, and
-   its `updated_at`.
+   `structure.healed` must be false. Then enable with `update_workflow`
+   and only `workflowId` plus `enabled: true` — omitting `tasks` changes
+   metadata without touching the graph.
 6. **Verify on a test entity.** Start an execution, complete the tasks, and
    confirm each decision routes as intended and each loop exits after
    `maxIterations`. Open the workflow in the epilot 360 flow builder for a
@@ -70,13 +70,15 @@ ids to look up first, how to model a process well, and how to verify it.
 
 ## Execution tools
 
-- **epilot MCP (preferred):** `create_workflow` (with `dryRun`) is the
-  curated authoring tool. Writes need the `mcp:write` consent, which the user
-  chooses on the epilot approval screen (read-only is preselected); when a
-  write is denied, ask the user to re-authenticate the connection and choose
-  read-and-write access. Reads and updates of existing workflows go through
-  `call_api_operation` with `getFlowTemplate`, `searchFlowTemplates`, and
-  `updateFlowTemplate`.
+- **epilot MCP (preferred):** `create_workflow` and `update_workflow` (both
+  with `dryRun`) are the curated authoring tools. `update_workflow` replaces
+  the graph from a full description and preserves the automations of tasks
+  that keep their id; the backend deletes the automations of removed tasks,
+  and the response lists what changed. Writes need the `mcp:write` consent,
+  which the user chooses on the epilot approval screen (read-only is
+  preselected); when a write is denied, ask the user to re-authenticate the
+  connection and choose read-and-write access. Existing workflows are read
+  with `call_api_operation` `getFlowTemplate` and `searchFlowTemplates`.
 - **Never assemble a flow template by hand** through the generic route. The
   template encodes semantics in id conventions (the `trigger` node, `none-met`
   default branches, `loop-edge` back edges, `exit-loop` branches) and the

@@ -57,19 +57,20 @@ See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/buil
 for current installation and distribution steps. This repository is the source
 package; it does not imply a published ChatGPT listing.
 
-The epilot MCP is hosted at `https://mcp.epilot.io/mcp`. Volt UI runs locally
-through Node.js and `npx`, and the App inspector also needs a local execution
-environment. A web installation does not provision those local processes.
-For public remote MCP distribution, host the required servers over HTTPS or
-use an explicitly supported local integration.
+Both MCP servers are hosted over HTTPS: the epilot MCP at
+`https://mcp.epilot.io/mcp` and the Volt UI MCP at
+`https://volt-ui.epilot.io/api/mcp`. Neither requires a local process, so they
+work in sandboxed surfaces such as Claude Cowork and ChatGPT. Only the App
+inspector needs a local Node.js environment.
 
 ### Other MCP clients
 
 Connect `https://mcp.epilot.io/mcp` in an MCP-capable client and authenticate
-when prompted. Direct MCP access provides documentation, API discovery, and
-organization tools; it does not install this package's skills or the Volt UI
-server. Available tools remain subject to the client's capabilities and your
-epilot permissions.
+when prompted. Optionally add `https://volt-ui.epilot.io/api/mcp` for Volt UI
+components and design tokens. Direct MCP access provides documentation, API
+discovery, organization tools, and design-system lookups; it does not install
+this package's skills. Available tools remain subject to the client's
+capabilities and your epilot permissions.
 
 When the epilot MCP is first used, your agent may ask you to authenticate and
 select an organization. Access remains subject to your epilot permissions.
@@ -153,7 +154,7 @@ in the intended client. Structural checks do not establish model behavior.
 ## Prerequisites
 
 - A supported coding agent
-- Node.js 22 or newer for local validation and the Volt UI MCP package
+- Node.js 22 or newer for local validation and the App inspector
 - An epilot account for organization-specific MCP operations
 
 Documentation and API discovery may be available without organization access;

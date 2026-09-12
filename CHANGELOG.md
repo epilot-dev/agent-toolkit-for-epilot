@@ -28,6 +28,11 @@ project follows [Semantic Versioning](https://semver.org/).
   frontmatter and interface metadata in CI.
 - Display the plugin as **epilot**, keeping the `epilot-core` package identifier.
 - Use Business & Operations as the OpenAI listing category and shorten its tagline.
+- Connect the Volt UI MCP through its hosted endpoint
+  `https://volt-ui.epilot.io/api/mcp` instead of a local `npx` process, so it
+  works in sandboxed clients such as Claude Cowork and ChatGPT.
+- Add the plugin logo and brand color to the Codex manifest and validate that
+  referenced assets exist.
 - Correct the ChatGPT installation documentation and describe local execution
   requirements separately from remote MCP access.
 - Renamed the plugin from `epilot-developer` to `epilot-core` to cover

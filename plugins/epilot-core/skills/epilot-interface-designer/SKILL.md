@@ -23,7 +23,8 @@ current Volt UI primitives and tokens rather than recreating the design system.
 
 ## Use the live design-system tool
 
-The plugin bundles the official Volt UI MCP server. Use:
+The plugin connects the hosted Volt UI MCP server at
+`https://volt-ui.epilot.io/api/mcp`. Use:
 
 - `search_components` then `get_component` for current components and props;
 - `search_tokens` then `get_token` for current semantic design tokens;

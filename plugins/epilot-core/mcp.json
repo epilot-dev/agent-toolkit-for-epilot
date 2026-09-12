@@ -6,9 +6,8 @@
       "url": "https://mcp.epilot.io/mcp"
     },
     "volt-ui": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@epilot/volt-ui-mcp"]
+      "type": "streamable-http",
+      "url": "https://volt-ui.epilot.io/api/mcp"
     }
   }
 }

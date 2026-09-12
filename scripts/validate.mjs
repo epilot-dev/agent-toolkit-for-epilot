@@ -145,7 +145,7 @@ if (!licenseText.includes("Apache License") || !licenseText.includes("Version 2.
 for (const relative of ["plugins/epilot-core/mcp.json", "plugins/epilot-core/.mcp.json"]) {
   const config = readJson(relative);
   if (config.mcpServers?.epilot?.url !== "https://mcp.epilot.io/mcp") failures.push(`${relative}: epilot MCP missing`);
-  if (!config.mcpServers?.["volt-ui"]) failures.push(`${relative}: Volt UI MCP missing`);
+  if (config.mcpServers?.["volt-ui"]?.url !== "https://volt-ui.epilot.io/api/mcp") failures.push(`${relative}: Volt UI MCP must use the hosted endpoint`);
 }
 const portableMcp = readJson("plugins/epilot-core/mcp.json");
 const compatibilityMcp = readJson("plugins/epilot-core/.mcp.json");

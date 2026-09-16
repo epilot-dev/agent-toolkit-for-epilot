@@ -8,6 +8,9 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Behavioral eval suite in `plugins/epilot-core/evals/` for `claude plugin eval`:
+  five routing and language cases with graders and epilot MCP mocks, plus the
+  manual checklist for other clients (moved from `tests/language-and-routing.md`).
 - Friendly display names, descriptions, and starter prompts for all six skills.
 - Consistent conversation and customer-content language guidance, with bilingual
   routing scenarios and stricter listing/MCP consistency checks.

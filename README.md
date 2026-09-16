@@ -148,8 +148,9 @@ do not add invented `en`/`de` objects to string fields or assume automatic
 listing translation. Each skill's `agents/openai.yaml` supplies its display
 name, short description, and starter prompt.
 
-Before a release, run the [language and routing checks](tests/language-and-routing.md)
-in the intended client. Structural checks do not establish model behavior.
+Before a release, run the [behavioral checks](plugins/epilot-core/evals/README.md):
+`claude plugin eval` in Claude Code and the manual script in other clients.
+Structural checks do not establish model behavior.
 
 ## Prerequisites
 

@@ -19,8 +19,9 @@ Toolkit releases use Semantic Versioning and Git tags in the form `vX.Y.Z`.
 7. Create a GitHub release using the matching changelog section.
 8. Verify installation from the GitHub marketplace in both Codex and Claude
    Code using a clean environment.
-9. Run [language and routing checks](tests/language-and-routing.md) in the
-   intended clients and record results for the release revision. Test ChatGPT
+9. Run the [behavioral checks](plugins/epilot-core/evals/README.md): the
+   automated eval suite in Claude Code and the manual script in the other
+   intended clients. Record results for the release revision. Test ChatGPT
    separately when distributing there; local installation is not publication.
 
 For a public OpenAI directory submission, verify the current listing limits

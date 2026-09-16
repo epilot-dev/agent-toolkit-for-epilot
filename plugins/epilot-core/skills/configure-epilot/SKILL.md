@@ -53,7 +53,10 @@ Configuration is executed through the public epilot CLI or the epilot APIs:
   `--token` flag, or the `EPILOT_TOKEN` environment variable.
 - Use epilot MCP `search_docs` and `fetch_doc` for current concepts, and
   `search_api_operations` then `describe_api_operation` for exact contracts.
-  Do not guess operation IDs, payload shapes, or attribute types.
+  Do not guess operation IDs, payload shapes, or attribute types. The
+  `<api>` name in the CLI and the `service` value in the MCP are the same
+  SDK client name (`entity`, `journey`, `organization`); take it from the
+  search result.
 - Use the connected organization's actual state — schemas, configs,
   dependencies — as the baseline. Documentation describes what is possible,
   not what this organization has.

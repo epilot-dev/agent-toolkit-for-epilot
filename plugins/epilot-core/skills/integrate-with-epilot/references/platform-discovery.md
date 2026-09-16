@@ -17,6 +17,11 @@ The bundled epilot MCP is the preferred discovery surface.
    identifiers before writing a client.
 3. Use `call_api_operation` only when a live call is needed and authorized.
    Non-GET operations are writes even when named “test”, “preview”, or “sync”.
+4. Pass `service` only as returned by `search_api_operations`. Service names
+   are the epilot SDK and CLI client names (`entity`, `journey`,
+   `organization`, `workflow-definition`); do not guess or reuse names from
+   earlier sessions. When the operationId is unambiguous, `service` can be
+   omitted.
 
 ## Data model and organization state
 

@@ -78,3 +78,39 @@ The closing message on the confirmation step:
 The confirmation step usually hides the stepper entirely:
 `showStepper: false`, `showStepperLabels: false`, `showStepName: false`,
 `showStepSubtitle: false`, `hideNextButton: true`.
+
+## AppBlockControl
+
+A custom journey block from an installed App. Journey Builder emits one
+element per block instance; the App must already be installed in the
+organisation (`build-epilot-app`), and the values come from its component
+(`listInstallations` → `components[]`, or the App's `manifest.json`):
+
+```json
+{
+  "type": "AppBlockControl",
+  "scope": "#/properties/Wallbox Intro",
+  "id": "<new UUID>",
+  "options": {
+    "appId": "<app_id>",
+    "componentId": "<component id>",
+    "bundleURL": "<configuration.component_url>",
+    "tagName": "<configuration.component_tag>",
+    "name": "<App name>",
+    "showPaper": false,
+    "stickyOnMobile": false,
+    "stickyOnMobileIndex": 1
+  }
+}
+```
+
+The step's `schema.properties` needs `"Wallbox Intro": { "type": "object" }`
+(the block name, as with every other block). If the component declares
+`component_args`, copy how their values are stored from a journey that
+already configures that block (copy-from-existing rule) rather than guessing
+the key. A display-only block should not be `required`; the component itself
+decides whether it reports a value through `setValue`.
+
+`bundleURL` is pinned to an App version, so after a new App version is
+deployed every journey that embeds the block needs this element updated —
+`get_config_impact` on the App (type `app`) lists them.

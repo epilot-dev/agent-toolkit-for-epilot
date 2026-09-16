@@ -65,7 +65,12 @@ copy right is what makes the journey good. Both are this skill's job.
    data the organization needs must map onto an entity attribute, and the
    executing automation must exist (create_journey sets both up; block
    changes require mapping updates). Verify attribute names against
-   `get_entity_schema`; a test submission is the definitive check.
+   `get_entity_schema`, and that `settings.runtimeEntities` covers every
+   mapping source (`ORDER` for product selections). A test submission is the
+   definitive check — read it back with the sequence in
+   journey-mappings.md, "Verifying the automation" (submission arrived,
+   automation `runs`, per-action execution status, produced entities), rather
+   than trusting the builder's green state.
 6. **Verify.** Re-read the definition, walk the wiring (every button's
    `targetStepId` resolves, every block scope has a schema property — the
    curated tools validate this and return actionable errors), and run the

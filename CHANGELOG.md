@@ -21,6 +21,22 @@ project follows [Semantic Versioning](https://semver.org/).
   (phases, decision branches, default branches, loops, automation tasks),
   graph replacement with `update_workflow`, design conventions, and
   verification.
+- `build-epilot-app` now deploys through the epilot MCP App API as part of
+  its working method: create or update the configuration, presigned bundle
+  upload, component registration, explicit `install`, version and
+  installation re-sync, the `component_args` shape, and wiring the component
+  into its surface. The CLI `app deploy` is documented as the equivalent
+  path, with its pitfalls (`app deploy --help` executes a deploy; a token for
+  another organization fails with `403`; deploy does not install).
+- `AppBlockControl` in the journey block catalog: how a journey step embeds
+  an installed App's custom journey block, and that `bundleURL` is pinned to
+  an App version.
+- `build-epilot-journey`: "Verifying the automation" — the read-back
+  sequence after a test submission (submission arrived, `searchFlows` runs,
+  `getExecutions` per-action status and outputs, produced entities), the
+  rule that `settings.runtimeEntities` must cover every mapping source
+  (`ORDER` for product selections), and the step-index shift after
+  structural journey changes.
 
 ### Changed
 

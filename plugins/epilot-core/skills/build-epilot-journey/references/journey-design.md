@@ -56,11 +56,13 @@ run the checklist before handing a journey over.
   organization design automatically; only override it deliberately.
 - Designs are managed with the MCP directly: `search_configuration` (type
   `designbuilder`) to find one and `call_api_operation getDesign` to inspect
-  it, `create_design` for a new brand look (a palette is
-  enough — typography is inherited from the default design), `update_design`
-  for changes. A design is shared configuration: changing one restyles every
-  journey and portal that uses it, so check `get_config_impact` (type
-  `designbuilder`) first. Journey-specific fine-tuning (accent and link
+  it. A new brand look is created by passing `design` to `create_journey` (a
+  palette is enough — typography is inherited from the default design) or
+  with `call_api_operation addDesign`, copying `typography` from the default
+  design because fonts are hosted assets. Changes go through
+  `call_api_operation updateDesign` after reading the stored design. A design
+  is shared configuration: changing one restyles every journey and portal
+  that uses it, so check `get_config_impact` (type `designbuilder`) first. Journey-specific fine-tuning (accent and link
   colors, font scale, custom CSS) lives in the design's `design_tokens`.
 - Choose the layout per step: `MainContentCartLayout` only where a cart or
   summary belongs next to the content (product and checkout steps);

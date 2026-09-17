@@ -6,6 +6,8 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-17
+
 ### Added
 
 - Behavioral eval suite in `plugins/epilot-core/evals/` for `claude plugin eval`:
@@ -43,6 +45,23 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Platform discovery now tells agents to call `describe_api_operation` before
+  the first `call_api_operation` of an operation and never to guess body
+  fields or query parameters, matching the epilot MCP's request-contract view
+  of `describe_api_operation` and its service overview for
+  `search_api_operations` without a query.
+- Design guidance uses `create_journey` with `design` or the generic
+  `addDesign` / `updateDesign` operations; the epilot MCP no longer ships
+  `create_design` and `update_design` tools.
+
+### Fixed
+
+- The discovery reference named a `list_entity_schemas` tool that does not
+  exist; entity schemas are listed with `search_configuration` (type
+  `schema`).
+- The discovery reference recommended omitting the query on
+  `search_api_operations` to list every operation, which exceeded the tool
+  result limit.
 - Fix invalid YAML in the configuration skill description and validate all skill
   frontmatter and interface metadata in CI.
 - Display the plugin as **epilot**, keeping the `epilot-core` package identifier.
@@ -69,5 +88,6 @@ project follows [Semantic Versioning](https://semver.org/).
 - Claude Code marketplace compatibility.
 - Local App manifest inspector and repository validation tests.
 
-[Unreleased]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/epilot-dev/agent-toolkit-for-epilot/releases/tag/v0.1.0

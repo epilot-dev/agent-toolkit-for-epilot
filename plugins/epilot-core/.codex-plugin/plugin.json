@@ -1,6 +1,6 @@
 {
   "name": "epilot-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Understand the epilot platform, build Apps and integrations, and configure epilot end to end using current APIs, organization context, and Volt UI guidance.",
   "author": {
     "name": "epilot",

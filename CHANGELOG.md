@@ -6,6 +6,15 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Merged `epilot-interface-designer` into `build-epilot-app`. Interface
+  design was only ever needed while building an App component, so the Volt UI
+  MCP guidance, the working method, and the `interface-principles.md` and
+  `visual-qa.md` references now live in the App skill and run as part of its
+  working method for every component that renders UI. The plugin ships six
+  skills.
+
 ## [0.2.0] - 2026-09-17
 
 ### Added

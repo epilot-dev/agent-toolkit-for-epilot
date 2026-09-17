@@ -14,9 +14,9 @@ knowledge with live tools:
 - epilot MCP for current documentation, OpenAPI discovery, entity schemas, and
   connected-organization configuration;
 - Volt UI MCP for current components, props, and design tokens;
-- a thin platform guide plus focused skills for Apps, integrations,
-  end-to-end platform configuration, journey building, and native epilot
-  interface design;
+- a thin platform guide plus focused skills for Apps (including native
+  interface design with Volt UI), integrations, end-to-end platform
+  configuration, journey building, and workflow building;
 - a deterministic local inspector for epilot App manifests and build inputs.
 
 The toolkit intentionally excludes Lima, SAP, and other ERP-specific behavior.
@@ -131,8 +131,7 @@ only when needed:
             ├── integrate-with-epilot/
             ├── configure-epilot/
             ├── build-epilot-journey/
-            ├── build-epilot-workflow/
-            └── epilot-interface-designer/
+            └── build-epilot-workflow/
 ```
 
 ## Language support

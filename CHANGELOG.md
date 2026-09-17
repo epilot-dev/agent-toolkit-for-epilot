@@ -6,8 +6,22 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Merged `epilot-interface-designer` into `build-epilot-app`. Interface
+  design was only ever needed while building an App component, so the Volt UI
+  MCP guidance, the working method, and the `interface-principles.md` and
+  `visual-qa.md` references now live in the App skill and run as part of its
+  working method for every component that renders UI. The plugin ships six
+  skills.
+
+## [0.2.0] - 2026-09-17
+
 ### Added
 
+- Behavioral eval suite in `plugins/epilot-core/evals/` for `claude plugin eval`:
+  five routing and language cases with graders and epilot MCP mocks, plus the
+  manual checklist for other clients (moved from `tests/language-and-routing.md`).
 - Friendly display names, descriptions, and starter prompts for all six skills.
 - Consistent conversation and customer-content language guidance, with bilingual
   routing scenarios and stricter listing/MCP consistency checks.
@@ -40,6 +54,24 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Platform discovery now tells agents to call `describe_api_operation` before
+  the first `call_api_operation` of an operation and never to guess body
+  fields or query parameters, matching the epilot MCP's request-contract view
+  of `describe_api_operation` and its service overview for
+  `search_api_operations` without a query.
+- Design guidance uses `create_journey` with `design` or the generic
+  `addDesign` / `updateDesign` operations; the epilot MCP no longer ships
+  `create_design` and `update_design` tools, nor `validate_journey_definition`
+  (the journey write tools run the same structural checks).
+
+### Fixed
+
+- The discovery reference named a `list_entity_schemas` tool that does not
+  exist; entity schemas are listed with `search_configuration` (type
+  `schema`).
+- The discovery reference recommended omitting the query on
+  `search_api_operations` to list every operation, which exceeded the tool
+  result limit.
 - Fix invalid YAML in the configuration skill description and validate all skill
   frontmatter and interface metadata in CI.
 - Display the plugin as **epilot**, keeping the `epilot-core` package identifier.
@@ -66,5 +98,6 @@ project follows [Semantic Versioning](https://semver.org/).
 - Claude Code marketplace compatibility.
 - Local App manifest inspector and repository validation tests.
 
-[Unreleased]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/epilot-dev/agent-toolkit-for-epilot/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/epilot-dev/agent-toolkit-for-epilot/releases/tag/v0.1.0

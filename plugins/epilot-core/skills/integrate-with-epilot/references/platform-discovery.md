@@ -11,10 +11,15 @@ The bundled epilot MCP is the preferred discovery surface.
 
 ## APIs
 
-1. Use `search_api_operations` with an outcome or domain term; omit the query
-   to list every published operation when the owning service is unknown.
-2. Use `describe_api_operation` for the exact request, response, auth, and
-   identifiers before writing a client.
+1. Use `search_api_operations` with an outcome or domain term. Without a
+   query it returns the list of services with operation counts; pass
+   `service` to list one service's operations. The full catalogue does not
+   fit a single result.
+2. Use `describe_api_operation` before the first `call_api_operation` of an
+   operation: it returns the request contract (parameters, body fields, the
+   schemas they reference). Do not guess body fields or query parameters;
+   most failed calls in production are guessed request shapes. Pass
+   `view: full` only when response schemas are needed.
 3. Use `call_api_operation` only when a live call is needed and authorized.
    Non-GET operations are writes even when named “test”, “preview”, or “sync”.
 4. Pass `service` only as returned by `search_api_operations`. Service names
@@ -25,8 +30,8 @@ The bundled epilot MCP is the preferred discovery surface.
 
 ## Data model and organization state
 
-- Use `list_entity_schemas` and `get_entity_schema` for the connected tenant's
-  actual entity model.
+- Use `search_configuration` (type `schema`) to list the connected tenant's
+  entity schemas and `get_entity_schema` for one schema's attributes.
 - Use `search_configuration` to find Apps, integrations, mappings, webhooks,
   workflows, or related configuration.
 - Use `get_config_dependencies` and `get_config_impact` before proposing a

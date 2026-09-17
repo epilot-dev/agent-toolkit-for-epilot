@@ -32,7 +32,6 @@ for (const relative of [
   "plugins/epilot-core/skills/configure-epilot/SKILL.md",
   "plugins/epilot-core/skills/build-epilot-journey/SKILL.md",
   "plugins/epilot-core/skills/build-epilot-workflow/SKILL.md",
-  "plugins/epilot-core/skills/epilot-interface-designer/SKILL.md",
 ]) requireFile(relative);
 
 const marketplace = readJson(".agents/plugins/marketplace.json");

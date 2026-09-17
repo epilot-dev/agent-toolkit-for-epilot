@@ -72,8 +72,10 @@ copy right is what makes the journey good. Both are this skill's job.
    automation `runs`, per-action execution status, produced entities), rather
    than trusting the builder's green state.
 6. **Verify.** Re-read the definition, walk the wiring (every button's
-   `targetStepId` resolves, every block scope has a schema property — the
-   curated tools validate this and return actionable errors), and run the
+   `targetStepId` resolves, every block scope has a schema property —
+   `create_journey` and `update_journey` check exactly this before any API
+   call and reject with the problem list, so there is no separate validation
+   tool), and run the
    design checklist. For a live check, open the journey in the epilot 360
    Journey Builder — configuration created via API appears there immediately.
 

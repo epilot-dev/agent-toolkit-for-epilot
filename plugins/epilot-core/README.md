@@ -10,7 +10,9 @@ systems to epilot. The visible name is **epilot**; the package ID remains
   whether a solution belongs in platform configuration, an App, or an
   integration.
 - `build-epilot-app` chooses the correct App surface, scaffolds with the
-  epilot CLI, and guides local development, validation, and delivery.
+  epilot CLI, designs the interface with Volt UI components and tokens so it
+  feels native and accessible, and guides local development, validation, and
+  delivery.
 - `integrate-with-epilot` connects external services directly through epilot
   APIs, webhooks, events, mappings, and synchronization patterns without
   requiring an App or assuming a particular ERP.
@@ -19,8 +21,6 @@ systems to epilot. The visible name is **epilot**; the package ID remains
   permissions, using the connected organization's actual state.
 - `build-epilot-journey` creates and updates customer-facing forms and funnels.
 - `build-epilot-workflow` creates internal processes with phases, branches, loops, and automated steps.
-- `epilot-interface-designer` uses Volt UI components and tokens to make App
-  interfaces feel native, accessible, and task-oriented.
 
 ## Tools
 

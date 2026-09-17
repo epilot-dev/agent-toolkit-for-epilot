@@ -38,7 +38,9 @@ npm run inspect:app -- /path/to/an/epilot-app
   repository, tests, screenshots, and examples.
 - Keep Lima, SAP, and other vendor-specific ERP behavior out of the core
   `epilot-core` plugin. Those integrations belong in optional plugins.
-- Add or update tests when behavior changes.
+- Add or update tests when behavior changes. Routing and language behavior
+  is covered by the eval suite in `plugins/epilot-core/evals/`; add a case
+  when you add a skill or change when a skill should trigger.
 - Keep Codex, portable Agent Plugins, and Claude metadata consistent.
 
 ## Pull requests

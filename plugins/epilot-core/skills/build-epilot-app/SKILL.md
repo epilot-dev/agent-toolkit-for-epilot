@@ -1,6 +1,6 @@
 ---
 name: build-epilot-app
-description: Build, extend, review, or troubleshoot an epilot App using its manifest, components, functions, App Bridge, API Proxy, the epilot MCP App API, and the epilot CLI. Use when the user explicitly asks for an App, custom page, entity capability or widget, journey or portal block, flow action, scheduled function, App deployment, or an App that does not appear. If it is unclear whether the solution should be an App, integration, or native configuration, use epilot-platform-guide first.
+description: Build, extend, review, or troubleshoot an epilot App using its manifest, components, functions, App Bridge, API Proxy, the epilot MCP App API, the epilot CLI, and Volt UI for native-feeling interfaces. Use when the user explicitly asks for an App, custom page, entity capability or widget, journey or portal block, flow action, scheduled function, App deployment, an App that does not appear, or the design, Volt UI component selection, accessibility, or visual QA of an App interface. If it is unclear whether the solution should be an App, integration, or native configuration, use epilot-platform-guide first.
 ---
 
 # Build an epilot App
@@ -32,7 +32,11 @@ into generated App repositories.
 - Read [references/delivery.md](references/delivery.md) for local development,
   validation, deployment through the epilot MCP or the CLI, installation,
   wiring the component into its surface, and troubleshooting.
-- Use `epilot-interface-designer` when visual design or UX is material.
+- Read [references/interface-principles.md](references/interface-principles.md)
+  before designing or materially restructuring any component that renders UI
+  (capability, page, journey block, portal block, configuration UI).
+- Read [references/visual-qa.md](references/visual-qa.md) before declaring UI
+  work complete.
 
 Load only the references needed for the current phase.
 
@@ -69,8 +73,9 @@ configuration, `component_args`), copy the shape from an installed App
    (`app init`, `app add-component`, `app add-function`) — these are local and
    need no login. Preserve CLI-owned identifiers; the component `id` in the
    manifest is the id the platform will know the component by.
-4. Build the smallest useful vertical slice, including loading, empty, error,
-   permission, and retry states where applicable.
+4. Build the smallest useful vertical slice. For components that render UI,
+   follow "Build the interface" below so the result feels native to its
+   epilot surface.
 5. Run the bundled local inspector, the project build, and
    `npx @epilot/cli app validate`. Confirm the target organization with MCP
    `whoami` (and `npx @epilot/cli auth status` if the CLI will deploy).
@@ -82,7 +87,42 @@ configuration, `component_args`), copy the shape from an installed App
    the App by itself.
 7. Wire the component into its surface (journey step, portal, entity schema,
    flow) and verify it inside the real epilot surface; a bare localhost render
-   cannot prove the host contract.
+   cannot prove the host contract. Run the visual-qa checklist for material
+   UI work.
+
+## Build the interface
+
+Every component that renders UI must feel native to its epilot surface,
+accessible, responsive, and task-oriented. Reuse current Volt UI primitives and
+tokens rather than recreating the design system.
+
+Use the hosted Volt UI MCP (`https://volt-ui.epilot.io/api/mcp`, connected by
+this plugin):
+
+- `search_components` then `get_component` for current components and props;
+- `search_tokens` then `get_token` for current semantic design tokens;
+- list operations only when search terms are not yet known.
+
+Inspect the target project's `package.json` before choosing imports. Existing
+App templates may use `@epilot/volt-ui`, while current design-system sources
+use `@epilot/volt-ui-react`; follow the package actually installed and do not
+mix their APIs from memory.
+
+Method:
+
+1. Identify the surface, primary user, primary action, density, and available
+   space before choosing a layout (see interface-principles.md).
+2. Search Volt UI for existing primitives and semantic tokens.
+3. Implement the complete state model: loading, empty, populated, partial,
+   validation, permission, recoverable failure, and unavailable integration.
+4. Keep dangerous or irreversible actions visually distinct and explain their
+   effect at action time.
+5. Test keyboard operation, focus, accessible names, contrast, responsive
+   behavior, long German labels, and realistic data volume (see visual-qa.md).
+6. Render inside the actual epilot host surface when App Bridge or container
+   sizing affects the result.
+
+Do not hardcode credentials, tenant details, or sample PII into the interface.
 
 ## Guidance ownership
 

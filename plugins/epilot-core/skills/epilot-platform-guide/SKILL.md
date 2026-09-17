@@ -31,10 +31,10 @@ documentation and live tools for changing details.
 - Use `configure-epilot` when the boundary is native configuration: schemas,
   journeys, products and pricing, workflows, automations, portals, or
   permissions.
-- Use `build-epilot-app` after the boundary is clearly an App.
+- Use `build-epilot-app` after the boundary is clearly an App, including
+  the design of its interface with Volt UI.
 - Use `integrate-with-epilot` when an external service, script, backend, or
   data pipeline must exchange data or commands with epilot.
-- Use `epilot-interface-designer` for a native-feeling custom interface.
 
 If the user already explicitly asks to build a known App surface or a generic
 integration, route directly to the focused skill.

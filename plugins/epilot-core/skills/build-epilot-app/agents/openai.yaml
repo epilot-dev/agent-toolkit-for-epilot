@@ -1,4 +1,4 @@
 interface:
   display_name: "Build an App"
-  short_description: "Build and validate an App for the epilot platform"
+  short_description: "Build, design, and validate an App for epilot"
   default_prompt: "Use $build-epilot-app to build an epilot App from this idea."

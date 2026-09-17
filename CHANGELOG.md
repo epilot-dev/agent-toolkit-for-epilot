@@ -52,7 +52,8 @@ project follows [Semantic Versioning](https://semver.org/).
   `search_api_operations` without a query.
 - Design guidance uses `create_journey` with `design` or the generic
   `addDesign` / `updateDesign` operations; the epilot MCP no longer ships
-  `create_design` and `update_design` tools.
+  `create_design` and `update_design` tools, nor `validate_journey_definition`
+  (the journey write tools run the same structural checks).
 
 ### Fixed
 

@@ -59,8 +59,13 @@ copy right is what makes the journey good. Both are this skill's job.
 4. **Create inactive, then iterate.** `create_journey` starts journeys with
    `isActive: false` by default. Review, refine with `update_journey`, and
    only then set `settings.isActive: true`. Update replaces whole sections
-   (steps, logics, rules, settings fields); read with
-   `get_journey`, modify, write back.
+   (steps, logicsV4, validationRules, logics, rules, contextSchema, settings
+   fields); read with `get_journey`, modify, write back. Conditional
+   display, required state, prefilling, and step jumps are `logicsV4`
+   entries; validation is a `validationRules` binding to a rule from the
+   Validation Rules API. Both are part of the journey, not a follow-up in
+   the builder. Copying a journey means sending all of its sections to
+   `create_journey`, or the copy loses its logic.
 5. **Map the submission.** Check `get_journey_mapping`: every block whose
    data the organization needs must map onto an entity attribute, and the
    executing automation must exist (create_journey sets both up; block
@@ -72,10 +77,11 @@ copy right is what makes the journey good. Both are this skill's job.
    automation `runs`, per-action execution status, produced entities), rather
    than trusting the builder's green state.
 6. **Verify.** Re-read the definition, walk the wiring (every button's
-   `targetStepId` resolves, every block scope has a schema property —
-   `create_journey` and `update_journey` check exactly this before any API
-   call and reject with the problem list, so there is no separate validation
-   tool), and run the
+   `targetStepId` resolves, every block scope has a schema property, every
+   block, step, and context parameter a logic or validation binding
+   references exists — `create_journey` and `update_journey` check exactly
+   this before any API call and reject with the problem list, so there is
+   no separate validation tool), and run the
    design checklist. For a live check, open the journey in the epilot 360
    Journey Builder — configuration created via API appears there immediately.
 

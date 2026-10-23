@@ -9,6 +9,8 @@ accept (the server injects `organizationId` and manages the signed
 {
   "name": "Wallbox bestellen",
   "steps": [ { "stepId": "…", "name": "…", "schema": {}, "uischema": {} } ],
+  "logicsV4": {},
+  "validationRules": {},
   "logics": [],
   "rules": [],
   "contextSchema": [],
@@ -68,15 +70,45 @@ omitted), `accessMode` (`PUBLIC` | `PRIVATE`), `isActive`, `isPublished`,
 `safeModeAutomation`. The signed `publicToken` is server-managed: reads never
 include it and updates preserve it automatically.
 
-## Logics, rules, context
+## Logics, validation, rules, context
 
-- `logics` (v3) — `{ conditions: string[], actions: string[] }` expressions
-  referencing block names; `logicsV4` — structured conditions over block or
-  context facts with `action` and `triggeredOn`.
+- `logicsV4` — the logic the Journey Builder writes, keyed by logic id. Each
+  entry has `id`, `action`, `triggeredOn` (`on-value-changed` |
+  `on-click-next`), `conditions` (OR-groups of AND-clauses, each `{ fact:
+  { referenceType, referenceId, path? }, operator, value }`), and
+  action-specific `settings`. Actions: `display-condition`,
+  `display-field-condition`, `required-condition`,
+  `required-field-condition`, `readonly-condition`, `show-options`,
+  `filter-condition`, `content-condition`, `prefill`, `data-injection`,
+  `jump-to-step`, `skip-step`. Facts read a `block` (by the uischema
+  element `id`), a `context-parameter` (by its `id`), a `datasource`,
+  `global`, or `environment` value; settings name the target with
+  `targetBlock` / `targetField`, `sourceBlock`, `targetStep`, or
+  `skipSteps`. Prefilling is `prefill` (a fixed or context-derived value) or
+  `data-injection` (copy one block's value into another).
+- `validationRules` — bindings of validation rules to blocks, keyed by block
+  id: a rule id or ordered list of rule ids for the whole block, or
+  `{ field: ruleId | ruleIds }` per field. The rules themselves live in the
+  Validation Rules API: list them with `call_read_api_operation
+  getValidationRules`, create one with `call_api_operation
+  createValidationRule`, then bind its id here.
+- `logics` (v3, legacy) — `{ conditions: string[], actions: string[] }`
+  expressions referencing block names. Prefer `logicsV4` for anything new.
 - `rules` — data injection between scopes: `{ type: "inject", sourceType:
   "journey|step|block", source, target }`.
-- `contextSchema` — declared launch parameters: `{ paramKey, type,
-  isRequired }`; type is an entity slug or `text`.
+- `contextSchema` — declared launch parameters: `{ id, paramKey, type,
+  isRequired, shouldLoadEntity }`; type is an entity slug or `text`;
+  `shouldLoadEntity` makes the runtime load the entity whose id is passed.
 
-Copy working logic and rule shapes from an existing journey via
+Every section is replaced as a whole by `update_journey`: to change one
+logic, read `logicsV4` with `get_journey`, modify it, and send the full
+object back. `create_journey` and `update_journey` check that every block,
+step, and context parameter a logic or binding references exists in the
+steps being written, that every validation rule id exists in the
+organization, and reject sections they do not know instead of dropping
+them. An update whose steps remove a block that stored logics still target
+is rejected; send the pruned `logicsV4` in the same call. Datasource facts
+are not checked.
+
+Copy working logic and binding shapes from an existing journey via
 `get_journey` before authoring new ones.

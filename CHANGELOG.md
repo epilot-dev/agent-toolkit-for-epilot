@@ -8,6 +8,12 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- `build-epilot-journey` now documents `logicsV4` (display, required,
+  prefill, show-options, jump and skip rules) and `validationRules` as
+  journey sections that `create_journey` and `update_journey` accept, with
+  the reference checks the epilot MCP runs before a write and the
+  Validation Rules API operations that own the rules. A copied journey keeps
+  its logic only when every section is sent.
 - Merged `epilot-interface-designer` into `build-epilot-app`. Interface
   design was only ever needed while building an App component, so the Volt UI
   MCP guidance, the working method, and the `interface-principles.md` and
